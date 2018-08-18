@@ -65,3 +65,13 @@ footer.page-footer {
   text-align:justify;
   font-size: 12pt;
 }
+
+#logo {
+  width: 82px;
+  height: 70px;
+  margin-top: -5px;
+}
+
+#download-button {
+  
+}
