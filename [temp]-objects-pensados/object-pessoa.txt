@@ -1,0 +1,8 @@
+nome
+sobrenome
+nacionalidade
+telefone
+idade
+sexo
+email
+senha
