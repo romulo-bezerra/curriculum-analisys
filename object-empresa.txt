@@ -22,8 +22,9 @@ tipo de empresa
 
 vaga
  - descrição
- - numero
+ - quantidade
+ - prazo de inscrição
  - habilidades linguisticas
- - habilidades especificas
+ - habilidades especificas do cargo
+ - habilidades gerais
  - atitudes
- - 
