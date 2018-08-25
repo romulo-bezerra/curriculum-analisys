@@ -1,0 +1,29 @@
+Nome fantasia
+Empreśario ou representante
+telefone
+cnpj
+razão social
+email
+senha
+
+endereço
+ - rua
+ - numero
+ - bairro
+ - cep
+ - cidade
+ - complemento
+
+tipo de empresa
+ - pretção de serviços
+ - comercio
+ - industria
+ - outros
+
+vaga
+ - descrição
+ - numero
+ - habilidades linguisticas
+ - habilidades especificas
+ - atitudes
+ - 
