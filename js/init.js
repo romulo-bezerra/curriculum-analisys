@@ -10,3 +10,7 @@
 $(document).ready(function(){
   $('select').formSelect();
 });
+
+$(document).ready(function() {
+   $('input#cnpj, textarea#textarea2').characterCounter();
+});

@@ -1,8 +1,12 @@
 vaga
- - descrição
- - quantidade
- - prazo de inscrição
- - habilidades linguisticas
- - habilidades especificas do cargo
- - habilidades gerais
- - atitudes
+ - foto.
+ - titulo.
+ - descrição.
+ - numero de vagas.
+ - horas diarias.
+ - salário.
+ - prazo de inscrição.
+ - habilidades linguisticas.
+ - habilidades especificas do cargo.
+ - habilidades gerais.
+ - atitudes.
