@@ -1,18 +1,19 @@
-.Nome fantasia
-.Empreśario ou representante
-.telefone
-.cnpj
-.razão social
-.email
-.senha
+Foto
+Nome fantasia
+Empreśario ou representante
+telefone
+cnpj
+razão social
+email
+senha
 
-.tipo de empresa
+tipo de empresa
  - pretção de serviços
  - comercio
  - industria
  - outros
 
-.endereço
+endereço
  - rua
  - numero
  - bairro
