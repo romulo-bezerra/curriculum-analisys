@@ -75,3 +75,11 @@ footer.page-footer {
 #footer {
   text-align:justify;
 }
+
+.redondo {
+   width: 300px;
+   height: 300px;
+
+   /* Agora a mágica */
+   border-radius: 50%;
+}
