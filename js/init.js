@@ -14,3 +14,7 @@ $(document).ready(function(){
 $(document).ready(function() {
    $('input#cnpj, textarea#textarea2').characterCounter();
 });
+
+$(document).ready(function(){
+  $('.modal').modal();
+});

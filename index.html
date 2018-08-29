@@ -13,17 +13,10 @@
     <body>
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
-
                 <img id="logo" src="images/logo2.png" alt="Logo">
-
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Entrar</a></li>
+                    <li><a href="login.html">Entrar</a></li>
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
 
@@ -36,11 +29,30 @@
                         <h5 class="header col s12 light">Uma Ferramenta para Análise Curricular Automatizada</h5>
                     </div>
                     <div class="row center">
-                        <a href="#" id="entrar" class="btn-large waves-effect waves-light teal lighten-1" style="width: 17%">Entrar</a>
-                        <a href="#" id="registrar" class="btn-large waves-effect waves-light teal lighten-1" style="width: 17%">Registre-se</a>
+                        <a href="login.html" id="entrar" class="btn-large waves-effect waves-light teal lighten-1" style="width: 17%">Entrar</a>
+
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn-large modal-trigger" href="#modal1">Registre-se</a>
+
+                        <!-- Modal Structure -->
+                       <div id="modal1" class="modal">
+                         <div class="modal-content container">
+                           <center>
+                             <div class="row">
+                               <h4 class="left">Registrar-se como</h4><br>
+                               <label>Selecione a forma</label><br>
+                               <a href="#" id="como-candidato" class="btn-large waves-effect waves-light teal lighten-1" >Empresa</a>
+                               <a href="#" id="cono-empresa" class="btn-large waves-effect waves-light teal lighten-1" >Candidato</a>
+                             </div>
+                           </center>
+                         </div>
+                         <div class="modal-footer">
+                           <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                         </div>
+                       </div>
+
                     </div>
                     <br><br>
-
                 </div>
             </div>
             <div class="parallax"><img src="images/b6.jpg" alt="Unsplashed background img 1"></div>
@@ -69,10 +81,17 @@
                                 da análise curricular. Este software garante a seleção automatizada dos perfis de interessados
                                 que mais se adequam a vaga através do cruzamento de informações entre a vaga cadastrada pela
                                 empresa e as informações disponíveis dos candidatos antes preenchidos formulários.</p>
+                            <p id="about-p3">O banco de dados das competências comportamentais foi complementado com palavras-chave do livro
+                               de Plano de Negócio dos autores Biagio e Batocchio (2012), mas especificamente na seção que trata sobre a
+                               declaração dos valores organizacionais. Por sua vez, as competências relacionadas às habilidades profissionais
+                               foram complementadas com as recomendações propostas por Oliveira (2011) no que tange às especificações para o
+                               cargo Desenvolvedor Programador e Analista de Sistemas Sênior.
+                            </p>
                             <p id="about-p4">
-                              <b>REFERÊNCIA BIBLIOGRÁFICA</b>
-                              <li>CHIAVENATO, Idalberto. Recursos Humanos: O capital humano das organizações. São Paulo: Atlas, 2006.</li>
-                              <li>Biagio, Luiz Amaldo. Plano de negócios: estratégias para micro e pequenas empresas/Luiz Arnaldo Biagio, Antonio Batocchio. - 2. ed. - Barueri, SP: Manole, 2012.</li>
+                              <b>REFERÊNCIAS BIBLIOGRÁFICAS</b><br>
+                              CHIAVENATO, Idalberto. Recursos Humanos: O capital humano das organizações. São Paulo: Atlas, 2006.<br>
+                              BIAGIO, Luiz Amaldo. BATOCCHIO, Antonio. Plano de negócios: estratégias para micro e pequenas empresas. - 2. ed. - Barueri, SP: Manole, 2012.<br>
+                              OLIVEIRA, Aristeu de. Manual de descrição de cargos e salários. - 3. ed. - São Paulo: Atlas, 2011.<br>
                             </p>
                         </div>
                     </div>
