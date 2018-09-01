@@ -42,7 +42,7 @@ public class Empresa implements Serializable {
     private String razaoSocial;
     @Enumerated
     @Column(nullable = false)
-    private TipoEmpresa empresa;
+    private TipoEmpresa tipoEmpresa;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
