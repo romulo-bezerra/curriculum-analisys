@@ -6,11 +6,11 @@
 
 [Número de vagas] - 4
 
-[Salário] - 1500
+[Salário] - 1800
 
 [Prazo de Inscrição] - 31/08/2018
 
-[Habilidades] - 
+[Habilidades] -
 Desenvolver sistemas em padrão aberto, baseados em banco de dados corporativo.
 Analisa sistemas corporativos
 Modela dados
@@ -21,7 +21,7 @@ Documenta sistemas
 
 [Idiomas] - Português, inglês intermediário
 
-[Atitudes] - 
+[Atitudes] -
 Responsabilidade
 Independência
 Integridade
