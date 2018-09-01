@@ -1,0 +1,10 @@
+br/edu/ifpb/enums/Origem.class
+br/edu/ifpb/domain/Atitude.class
+br/edu/ifpb/domain/Empresa.class
+br/edu/ifpb/domain/Candidato.class
+br/edu/ifpb/enums/Sexo.class
+br/edu/ifpb/enums/TipoEmpresa.class
+br/edu/ifpb/domain/embeddables/Endereco.class
+br/edu/ifpb/domain/Vaga.class
+br/edu/ifpb/domain/Idioma.class
+br/edu/ifpb/domain/Habilidade.class
