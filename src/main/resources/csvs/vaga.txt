@@ -1,0 +1,33 @@
+[Titulo] - Programador Web Pleno
+
+[Descrição da vaga] - O desenvolvedor programador web deve ser de um perfil respeitoso. Respeitoso não só com os os colegas (a equipe) como com os prazos e pedidos. Principalmente com este segundo. O mesmo deve ser obediente aos gerentes de projeto e ter ciência de que um código limpo e supervisionado é a melhor forma de economizar tempo em manutenções e melhorias.
+
+[Horas diárias] - 8 horas
+
+[Número de vagas] - 4
+
+[Salário] - 1800
+
+[Prazo de Inscrição] - 31/08/2018
+
+[Habilidades] -
+Desenvolver sistemas em padrão aberto, baseados em banco de dados corporativo.
+Analisa sistemas corporativos
+Modela dados
+Administra e gerencia o SGBDR
+Desenvolve aplicações em arquitetura client/server
+Desenvolve aplicações web
+Documenta sistemas
+
+[Idiomas] - Português, inglês intermediário
+
+[Atitudes] -
+Responsabilidade
+Independência
+Integridade
+Cooperação
+Criatividade
+Reconhecimento
+Competência
+Serenidade
+Democracia

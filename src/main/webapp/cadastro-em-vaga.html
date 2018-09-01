@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Cadastro em Vaga</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="white-text" href="sass.html"><i class="material-icons left white-text">save</i>Registre-se!</a></li>
+                    <li><a class="white-text" href="badges.html"><i class="material-icons right white-text">home</i>Início</a></li>
+                </ul>
+            </div>
+        </nav><br>
+
+        <div class="row container">
+            <div class="col s6">
+                <h5>Cadastro em Vagas</h5>
+            </div>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person</i>
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">Nome completo</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">mail</i>
+                      <input id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">wc</i>
+                        <select>
+                            <option value="" disabled selected>Escolha uma opção</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Fiminino</option>
+                        </select>
+                        <label>Sexo</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">faces</i>
+                        <input id="idade" type="text" class="validate">
+                        <label for="idade">Idade</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">language</i>
+                        <input id="nacionalidade" type="text" class="validate">
+                        <label for="nacionalidade">Nacionalidade</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="telefone" type="tel" class="validate">
+                        <label for="telefone">Telefone</label>
+                    </div>
+
+                    <div class="col s6">
+                        <h6><u>Endereco</u></h6>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">streetview</i>
+                        <input id="rua" type="text" class="validate">
+                        <label for="rua">Rua</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">markunread_mailbox</i>
+                        <input id="numero" type="text" class="validate">
+                        <label for="numero">Número</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">streetview</i>
+                        <input id="bairro" type="text" class="validate">
+                        <label for="bairro">Bairro</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <input id="cep" type="text" class="validate">
+                        <label for="cep">CEP</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_city</i>
+                        <input id="cidade" type="text" class="validate">
+                        <label for="cidade">Cidade</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <input id="complemento" type="text" class="validate">
+                        <label for="complemento">Complemento</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">adjusts</i>
+                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
+                      <label for="textarea2">Objetivo</label>
+                      <span class="helper-text" data-error="wrong" data-success="right">Qual é seu objetivo com para com a empresa?</span>
+                    </div>
+
+
+                    <div class="col s12">
+                      <p>Idiomas</p>
+                    </div>
+                    <div class="col s12">
+                      <p>
+                        Habilidades
+                      </p>
+                    </div>
+                    <div class="col s12">
+                      <p>
+                        Atitudes
+                      </p>
+                    </div>
+
+                </div>
+                <div class="right">
+                    <a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadastrar</a>
+                </div>
+            </form>
+        </div>
+
+        <footer class="page-footer teal"></footer>
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+    </body>
+</html>
