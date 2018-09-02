@@ -1,8 +1,10 @@
 package br.edu.ifpb.domain;
 
+import br.edu.ifpb.domain.embeddables.Endereco;
 import br.edu.ifpb.enums.Sexo;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -35,5 +37,8 @@ public class Candidato implements Serializable {
     private String email;
     @Column(nullable = false, length = 30)
     private String senha;
+    
+    @EmbeddedId
+    private Endereco endereco;
 
 }

@@ -47,11 +47,15 @@ public class Vaga implements Serializable {
     private List<Habilidade> habilidades;
     @OneToMany
     private List<Atitude> atitudes;
+    
+    @OneToMany
+    private List<InscricaoVaga> inscricoesVagas;
 
     public Vaga() {
         this.idiomas = new ArrayList<>();
         this.habilidades = new ArrayList<>();
         this.atitudes = new ArrayList<>();
+        this.inscricoesVagas = new ArrayList<>();
     }
     
     public boolean addAtutude (Atitude atitude) {
@@ -64,6 +68,10 @@ public class Vaga implements Serializable {
     
     public boolean addHabilidade (Habilidade habilidade) {
         return habilidades.add(habilidade);
+    }
+    
+    public boolean addInscricaoVaga (InscricaoVaga inscricaoVaga) {
+        return inscricoesVagas.add(inscricaoVaga);
     }
     
 }

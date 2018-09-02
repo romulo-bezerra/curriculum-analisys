@@ -2,6 +2,12 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="curriculum-analisys" transaction-type="JTA">
     <jta-data-source>java:app/postgres</jta-data-source>
+    <class>br.edu.ifpb.domain.Atitude</class>
+    <class>br.edu.ifpb.domain.Candidato</class>
+    <class>br.edu.ifpb.domain.Empresa</class>
+    <class>br.edu.ifpb.domain.Habilidade</class>
+    <class>br.edu.ifpb.domain.Idioma</class>
+    <class>br.edu.ifpb.domain.Vaga</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
