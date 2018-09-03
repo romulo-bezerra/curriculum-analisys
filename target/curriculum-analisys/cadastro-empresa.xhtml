@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Cadastro Empresa</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="white-text" href="sass.html"><i class="material-icons left white-text">save</i>Registre-se!</a></li>
+                    <li><a class="white-text" href="badges.html"><i class="material-icons right white-text">home</i>Início</a></li>
+                </ul>
+            </div>
+        </nav><br/>
+
+        <div class="row container">
+            <div class="col s6">
+                <h5>Cadastro de Empresa</h5>
+            </div>
+            <h:form class="col s12" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="file-field input-field col s12">
+                        <div class="btn">
+                            <span>Foto</span>
+                            <h:inputFile id="foto" label="Foto" value="#{empresaController.foto}" required="true"/>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"/>
+                        </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">business</i>
+                        <h:inputText id="nomeFantasia" class="validate" value="#{empresaController.empresa.nomeFantasia}" required="true"/>
+                        <!--<input id="nome_fantasia" type="text" class="validate">-->
+                        <label for="nome_fantasia">Nome Fantasia</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">content_paste</i>
+                        <h:inputText id="cnpj" class="validate" value="#{empresaController.empresa.cnpj}" required="true"/>
+                        <!--<input id="cnpj" type="text" class="validate" data-length="18">-->
+                        <label for="cnpj">CNPJ</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <h:inputText id="empresario" class="validate" value="#{empresaController.empresa.empresario}" required="true"/>
+                        <!--<input id="empresario" type="text" class="validate">-->
+                        <label for="empresario">Empresário/Representante</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <h:inputText id="telefone" class="validate" value="#{empresaController.empresa.telefone}" required="true"/>
+                        <!--<input id="telefone" type="tel" class="validate">-->
+                        <label for="empresario">Telefone</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_balance</i>
+                        <h:inputText id="razaoSocial" class="validate" value="#{empresaController.empresa.razaoSocial}" required="true"/>
+                        <!--<input id="razao_social" type="text" class="validate">-->
+                        <label for="razao_social">Razão Social</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">info</i>
+                        <h:selectOneMenu id="tipoEmpresa" value="#{empresaController.empresa.tipoEmpresa}" 
+                                         required="true" requiredMessage="Selecione o tipo de empresa">
+                            <f:selectItem itemLabel="Escolha o tipo da empresa" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{empresaController.optionsTipoEmpresa()}" 
+                                           var="tipoEmpresa" itemLabel="#{tipoEmpresa.toString()}" itemValue="#{tipoEmpresa}"/> 
+                        </h:selectOneMenu>
+                        <label>Tipo de Empresa</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <h:inputText id="email" class="validate" value="#{empresaController.empresa.email}" required="true"/>
+                        <!--<input id="email" type="email" class="validate">-->
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <h:inputSecret id="senha" class="validate" value="#{empresaController.empresa.senha}" required="true"/>
+                        <!--<input id="password" type="password" class="validate">-->
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+                <div class="col s6">
+                    <h6>Endereço</h6>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">streetview</i>
+                        <h:inputText id="rua" class="validate" value="#{empresaController.endereco.rua}" required="true"/>
+                        <!--<input id="rua" type="text" class="validate">-->
+                        <label for="rua">Rua</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">markunread_mailbox</i>
+                        <h:inputText id="numero" class="validate" value="#{empresaController.endereco.numero}" required="true"/>
+                        <!--<input id="numero" type="text" class="validate">-->
+                        <label for="numero">Número</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">streetview</i>
+                        <h:inputText id="bairro" class="validate" value="#{empresaController.endereco.bairro}" required="true"/>
+                        <!--<input id="bairro" type="text" class="validate">-->
+                        <label for="bairro">Bairro</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <h:inputText id="cep" class="validate" value="#{empresaController.endereco.cep}" required="true"/>
+                        <!--<input id="cep" type="text" class="validate">-->
+                        <label for="cep">CEP</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_city</i>
+                        <h:inputText id="cidade" class="validate" value="#{empresaController.endereco.cidade}" required="true"/>
+                        <!--<input id="cidade" type="text" class="validate">-->
+                        <label for="cidade">Cidade</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <h:inputText id="complemento" class="validate" value="#{empresaController.endereco.complemento}" required="true"/>
+                        <!--<input id="complemento" type="text" class="validate">-->
+                        <label for="complemento">Complemento</label>
+                    </div>
+                </div>
+                
+                <div class="left">
+                    <label><h:messages class="red-text center"/></label>
+                </div>
+                
+                <div class="right">
+                    <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{empresaController.save()}"/>
+                    <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadastrar</a>-->
+                </div>
+
+            </h:form>
+        </div>
+
+        <!--<footer class="page-footer teal"></footer>-->
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+    </h:body>
+</html>

@@ -1,11 +1,12 @@
 package br.edu.ifpb.domain;
 
 import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.enums.Sexo;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-09-03T11:02:15")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-09-03T15:07:14")
 @StaticMetamodel(Candidato.class)
 public class Candidato_ { 
 
@@ -15,7 +16,7 @@ public class Candidato_ {
     public static volatile SingularAttribute<Candidato, Endereco> endereco;
     public static volatile SingularAttribute<Candidato, String> nome;
     public static volatile SingularAttribute<Candidato, Integer> id;
-    public static volatile SingularAttribute<Candidato, String> sexo;
+    public static volatile SingularAttribute<Candidato, Sexo> sexo;
     public static volatile SingularAttribute<Candidato, String> nacionalidade;
     public static volatile SingularAttribute<Candidato, String> sobreNome;
     public static volatile SingularAttribute<Candidato, String> email;

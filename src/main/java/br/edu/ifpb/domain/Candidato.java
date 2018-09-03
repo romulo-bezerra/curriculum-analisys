@@ -1,10 +1,13 @@
 package br.edu.ifpb.domain;
 
 import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.enums.Sexo;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -25,7 +28,8 @@ public class Candidato implements Serializable {
     @Column(nullable = false)
     private String sobreNome;
     @Column(nullable = false)
-    private String sexo;
+    @Enumerated(EnumType.STRING)
+    private Sexo sexo;
     @Column(nullable = false)
     private String nacionalidade;
     @Column(nullable = false)

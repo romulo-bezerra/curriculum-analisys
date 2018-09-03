@@ -35,8 +35,6 @@ public class CandidatoController {
                     + "cadastrado com o e-mail informado!");
             return null;
         } else {
-            String sexoUpperCase = candidato.getSexo().toUpperCase();
-            candidato.setSexo(sexoUpperCase);
             candidato.setEndereco(endereco);
             candidatoService.save(candidato);
             return "login.xhtml";
@@ -49,7 +47,7 @@ public class CandidatoController {
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
 
-    public List<String> optionsSexo() {
+    public List<Enum> optionsSexo() {
         return candidatoService.getOptionsSexo();
     }
 }

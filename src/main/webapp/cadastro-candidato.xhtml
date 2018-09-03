@@ -13,7 +13,6 @@
         <link href="css/style.css" type="text/css" rel="stylesheet"/>
     </h:head>
     <h:body>
-
         <nav>
             <div class="nav-wrapper teal">
                 <ul class="right hide-on-med-and-down">
@@ -45,7 +44,7 @@
                                          required="true" requiredMessage="Selecione o Sexo">
                             <f:selectItem itemLabel="Escolha o sexo" itemValue="" noSelectionOption="true"/>
                             <f:selectItems value="#{candidatoController.optionsSexo()}" 
-                                           var="sexo" itemLabel="#{sexo}" itemValue="#{sexo}"/> 
+                                           var="sexo" itemLabel="#{sexo.toString()}" itemValue="#{sexo}"/> 
                         </h:selectOneMenu>
                     </div>
                     <div class="input-field col s6">

@@ -1,6 +1,8 @@
 package br.edu.ifpb.domain;
 
 import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.enums.TipoEmpresa;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,8 +43,9 @@ public class Empresa implements Serializable {
     private String telefone;
     @Column(nullable = false)
     private String razaoSocial;
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String tipoEmpresa;
+    private TipoEmpresa tipoEmpresa;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
@@ -59,5 +64,8 @@ public class Empresa implements Serializable {
     public boolean addVaga(Vaga vaga) {
         return vagas.add(vaga);
     }
-
+    
+    public String fotoBase64() {
+        return Base64.encode(foto);
+    }
 }

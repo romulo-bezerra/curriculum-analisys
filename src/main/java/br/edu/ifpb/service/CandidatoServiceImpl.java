@@ -2,6 +2,7 @@ package br.edu.ifpb.service;
 
 import br.edu.ifpb.abstraction.CandidatoService;
 import br.edu.ifpb.domain.Candidato;
+import br.edu.ifpb.enums.Sexo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,10 +33,10 @@ public class CandidatoServiceImpl implements CandidatoService {
     }
 
     @Override
-    public List<String> getOptionsSexo() {
-        List<String> optionsSexo = new ArrayList<>();
-        optionsSexo.add("Masculino");
-        optionsSexo.add("Feminino");
+    public List<Enum> getOptionsSexo() {
+        List<Enum> optionsSexo = new ArrayList<>();
+        optionsSexo.add(Sexo.MASCULINO);
+        optionsSexo.add(Sexo.FEMININO);
         return optionsSexo;
     }
     

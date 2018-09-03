@@ -2,6 +2,7 @@ br/edu/ifpb/domain/Idioma_.class
 br/edu/ifpb/domain/InscricaoVaga_.class
 br/edu/ifpb/domain/Habilidade_.class
 br/edu/ifpb/domain/Atitude.class
+br/edu/ifpb/abstraction/EmpresaService.class
 br/edu/ifpb/domain/Empresa.class
 br/edu/ifpb/domain/Atitude_.class
 br/edu/ifpb/domain/Candidato_.class
@@ -10,12 +11,16 @@ br/edu/ifpb/abstraction/CandidatoService.class
 br/edu/ifpb/enums/Origem.class
 br/edu/ifpb/domain/InscricaoVaga.class
 br/edu/ifpb/domain/Empresa_.class
+br/edu/ifpb/controller/EmpresaController.class
 br/edu/ifpb/abstraction/LoginService.class
 br/edu/ifpb/domain/Vaga_.class
 br/edu/ifpb/service/CandidatoServiceImpl.class
 br/edu/ifpb/domain/Candidato.class
 br/edu/ifpb/service/LoginServiceImpl.class
+br/edu/ifpb/enums/Sexo.class
 br/edu/ifpb/controller/LoginController.class
+br/edu/ifpb/service/EmpresaServiceImpl.class
+br/edu/ifpb/enums/TipoEmpresa.class
 br/edu/ifpb/domain/embeddables/Endereco.class
 br/edu/ifpb/domain/Vaga.class
 br/edu/ifpb/domain/Idioma.class
