@@ -39,5 +39,5 @@ public class Candidato implements Serializable {
     
     @Embedded
     private Endereco endereco;
-
+    
 }

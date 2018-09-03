@@ -34,8 +34,8 @@ public class CandidatoServiceImpl implements CandidatoService {
     @Override
     public List<String> getOptionsSexo() {
         List<String> optionsSexo = new ArrayList<>();
-        optionsSexo.add("MASCULINO");
-        optionsSexo.add("FEMININO");
+        optionsSexo.add("Masculino");
+        optionsSexo.add("Feminino");
         return optionsSexo;
     }
     
