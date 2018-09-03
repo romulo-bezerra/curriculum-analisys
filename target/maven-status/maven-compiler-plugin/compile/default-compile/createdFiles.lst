@@ -10,9 +10,12 @@ br/edu/ifpb/abstraction/CandidatoService.class
 br/edu/ifpb/enums/Origem.class
 br/edu/ifpb/domain/InscricaoVaga.class
 br/edu/ifpb/domain/Empresa_.class
+br/edu/ifpb/abstraction/LoginService.class
 br/edu/ifpb/domain/Vaga_.class
 br/edu/ifpb/service/CandidatoServiceImpl.class
 br/edu/ifpb/domain/Candidato.class
+br/edu/ifpb/service/LoginServiceImpl.class
+br/edu/ifpb/controller/LoginController.class
 br/edu/ifpb/domain/embeddables/Endereco.class
 br/edu/ifpb/domain/Vaga.class
 br/edu/ifpb/domain/Idioma.class

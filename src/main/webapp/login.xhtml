@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -32,37 +33,51 @@
             <div class="col s6 offset-s3">
                 <h5>Login</h5>
             </div>
-            <form class="col s12">
+            <h:form class="col s12">
                 <div class="row">
                     <div class="input-field col s6 offset-s3">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="email" type="email" class="validate"/>
+                        <h:inputText id="email" class="validate" value="#{loginController.email}" required="true"/>
+                        <!--<input id="email" type="email" class="validate"/>-->
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field col s6 offset-s3">
                         <i class="material-icons prefix">lock_outline</i>
-                        <input id="password" type="password" class="validate"/>
+                        <h:inputText id="senha" class="validate" value="#{loginController.senha}" required="true"/>
+                        <!--<input id="password" type="password" class="validate"/>-->
                         <label for="password">Password</label>
+
                         <p>
                             <label>Entrar como: </label><br/>
-                            <label>
+                            <!--<label>
                                 <input class="with-gap" name="group1" type="radio" />
                                 <span>Empresa</span>
                             </label>
                             <label>
                                 <input class="with-gap" name="group1" type="radio"  />
                                 <span>Candidato</span>
-                            </label>
+                            </label>-->
+                            <h:selectOneMenu id="tipoLogin" value="#{loginController.tipoLogin}" 
+                                             required="true" requiredMessage="Selecione uma opção">
+                                <f:selectItem itemLabel="Escolha uma opção" itemValue="" noSelectionOption="true"/>
+                                <f:selectItems value="#{loginController.optionsTipoLogin()}" 
+                                               var="tipoLogin" itemLabel="#{tipoLogin}" itemValue="#{tipoLogin}"/> 
+                            </h:selectOneMenu>
                         </p>
-                        
+
+                        <div class="left">
+                            <label><h:messages class="red-text center"/></label>
+                        </div>
+
                         <div class="right">
-                            <a class="waves-effect waves-light btn-large"><i class="material-icons left">forward</i>Entrar</a>
+                            <h:commandButton  value="Login" class="waves-effect waves-light btn-large" action="#{loginController.login()}"/>
+                            <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">forward</i>Entrar</a>-->
                         </div>
                     </div>
                 </div>
-            </form>
+            </h:form>
         </div>
-        
+
         <footer class="page-footer teal"></footer>
 
         <!--  Scripts-->

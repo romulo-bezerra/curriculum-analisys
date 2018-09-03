@@ -39,7 +39,7 @@ public class CandidatoController {
             candidato.setSexo(sexoUpperCase);
             candidato.setEndereco(endereco);
             candidatoService.save(candidato);
-            return "faces/login.xhtml";
+            return "login.xhtml";
         }
     }
 

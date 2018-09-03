@@ -5,7 +5,10 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Candidato.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/embeddables/Endereco.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/enums/Origem.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/abstraction/LoginService.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/controller/LoginController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/converter/SexoEnumConverter.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/service/LoginServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/service/CandidatoServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Vaga.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Empresa.java
