@@ -16,7 +16,7 @@ public class Endereco implements Serializable {
     @Column(nullable = false)
     private String rua;
     @Column(nullable = false)
-    private int numero;
+    private String numero;
     @Column(nullable = false)
     private String bairro;
     @Column(nullable = false)

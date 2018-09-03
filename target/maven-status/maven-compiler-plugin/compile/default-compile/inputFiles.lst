@@ -1,8 +1,10 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/embeddables/Endereco.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/InscricaoVaga.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/enums/Origem.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Idioma.java
-/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/enums/Sexo.java
-/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/enums/TipoEmpresa.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/abstraction/CandidatoService.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/service/CandidatoServiceImpl.java
+/home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/controller/CandidatoController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Vaga.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Candidato.java
 /home/romulo/Área de Trabalho/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Empresa.java

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Cadastro Candidato</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="white-text" href="sass.html"><i class="material-icons left white-text">save</i>Registre-se!</a></li>
+                    <li><a class="white-text" href="badges.html"><i class="material-icons right white-text">home</i>Início</a></li>
+                </ul>
+            </div>
+        </nav><br/>
+
+        <div class="row container">
+            <div class="col s6">
+                <h5>Cadastro de Candidato</h5>
+            </div>
+            <h:form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">person</i>
+                        <h:inputText id="nome" class="validate" value="#{candidatoController.candidato.nome}" required="true"/>
+                        <label for="first_name">Nome</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">person_outline</i>
+                        <h:inputText id="sobreNome" class="validate" value="#{candidatoController.candidato.sobreNome}" required="true"/>
+                        <label for="last_name">Sobrenome</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">wc</i>
+                        <h:selectOneMenu id="sexo" value="#{candidatoController.candidato.sexo}" 
+                                         required="true" requiredMessage="Selecione o Sexo">
+                            <f:selectItem itemLabel="Escolha o sexo" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{candidatoController.optionsSexo()}" 
+                                           var="sexo" itemLabel="#{sexo}" itemValue="#{sexo}"/> 
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">faces</i>
+                        <h:inputText id="idade" class="validate" value="#{candidatoController.candidato.idade}" required="true"/>
+                        <label for="idade">Idade</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">language</i>
+                        <h:inputText id="nacionalidade" class="validate" value="#{candidatoController.candidato.nacionalidade}" required="true"/>
+                        <label for="nacionalidade">Nacionalidade</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <h:inputText id="telefone" class="validate" value="#{candidatoController.candidato.telefone}" required="true"/>
+                        <label for="telefone">Telefone</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <h:inputText id="email" class="validate" value="#{candidatoController.candidato.email}" required="true"/>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <h:inputSecret id="senha" class="validate" value="#{candidatoController.candidato.senha}" required="true"/>
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="col s6">
+                        <h6><u>Endereco</u></h6>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">streetview</i>
+                        <h:inputText id="rua" class="validate" value="#{candidatoController.endereco.rua}" required="true"/>
+                        <label for="rua">Rua</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">markunread_mailbox</i>
+                        <h:inputText id="numero" class="validate" value="#{candidatoController.endereco.numero}" required="true"/>
+                        <label for="numero">Número</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">streetview</i>
+                        <h:inputText id="bairro" class="validate" value="#{candidatoController.endereco.bairro}" required="true"/>
+                        <label for="bairro">Bairro</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <h:inputText id="cep" class="validate" value="#{candidatoController.endereco.cep}" required="true"/>
+                        <label for="cep">CEP</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_city</i>
+                        <h:inputText id="cidade" class="validate" value="#{candidatoController.endereco.cidade}" required="true"/>
+                        <label for="cidade">Cidade</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <h:inputText id="complemento" class="validate" value="#{candidatoController.endereco.complemento}" required="true"/>
+                        <label for="complemento">Complemento</label>
+                    </div>
+                </div>
+
+                <div class="left">
+                    <label><h:messages class="red-text center"/></label>
+                </div>
+
+                <div class="right">
+                    <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{candidatoController.save()}"/>
+                </div>
+            </h:form>
+        </div>
+        
+        <!--<footer class="page-footer teal"></footer>-->
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+    </h:body>
+</html>
