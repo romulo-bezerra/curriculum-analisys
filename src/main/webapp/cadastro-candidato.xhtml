@@ -44,7 +44,7 @@
                                          required="true" requiredMessage="Selecione o Sexo">
                             <f:selectItem itemLabel="Escolha o sexo" itemValue="" noSelectionOption="true"/>
                             <f:selectItems value="#{candidatoController.optionsSexo()}" 
-                                           var="sexo" itemLabel="#{sexo.toString()}" itemValue="#{sexo}"/> 
+                                           var="sexo" itemLabel="#{sexo}" itemValue="#{sexo}"/> 
                         </h:selectOneMenu>
                     </div>
                     <div class="input-field col s6">
@@ -117,7 +117,7 @@
                 </div>
             </h:form>
         </div>
-        
+
         <!--<footer class="page-footer teal"></footer>-->
 
         <!--  Scripts-->

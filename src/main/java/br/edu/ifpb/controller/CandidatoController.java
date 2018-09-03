@@ -3,12 +3,13 @@ package br.edu.ifpb.controller;
 import br.edu.ifpb.abstraction.CandidatoService;
 import br.edu.ifpb.domain.Candidato;
 import br.edu.ifpb.domain.embeddables.Endereco;
-import java.util.List;
+import br.edu.ifpb.enums.Sexo;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import lombok.Data;
 
@@ -47,7 +48,12 @@ public class CandidatoController {
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
 
-    public List<Enum> optionsSexo() {
-        return candidatoService.getOptionsSexo();
+    public SelectItem[] optionsSexo() {
+        SelectItem[] items = new SelectItem[Sexo.values().length];
+        int i = 0;
+        for (Sexo s : Sexo.values()) {
+            items[i++] = new SelectItem(s, s.getLabel());
+        }
+        return items;
     }
 }

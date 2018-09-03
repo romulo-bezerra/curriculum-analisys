@@ -74,7 +74,7 @@
                                          required="true" requiredMessage="Selecione o tipo de empresa">
                             <f:selectItem itemLabel="Escolha o tipo da empresa" itemValue="" noSelectionOption="true"/>
                             <f:selectItems value="#{empresaController.optionsTipoEmpresa()}" 
-                                           var="tipoEmpresa" itemLabel="#{tipoEmpresa.toString()}" itemValue="#{tipoEmpresa}"/> 
+                                           var="tipoEmpresa" itemLabel="#{tipoEmpresa}" itemValue="#{tipoEmpresa}"/> 
                         </h:selectOneMenu>
                         <label>Tipo de Empresa</label>
                     </div>
@@ -133,11 +133,11 @@
                         <label for="complemento">Complemento</label>
                     </div>
                 </div>
-                
+
                 <div class="left">
                     <label><h:messages class="red-text center"/></label>
                 </div>
-                
+
                 <div class="right">
                     <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{empresaController.save()}"/>
                     <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadastrar</a>-->

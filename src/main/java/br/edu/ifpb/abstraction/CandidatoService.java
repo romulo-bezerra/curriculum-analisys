@@ -9,6 +9,4 @@ public interface CandidatoService {
 
     public boolean isRegistered(String email);
     
-    public List<Enum> getOptionsSexo();
-
 }

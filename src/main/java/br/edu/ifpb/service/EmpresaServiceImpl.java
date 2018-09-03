@@ -2,9 +2,6 @@ package br.edu.ifpb.service;
 
 import br.edu.ifpb.abstraction.EmpresaService;
 import br.edu.ifpb.domain.Empresa;
-import br.edu.ifpb.enums.TipoEmpresa;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,13 +29,4 @@ public class EmpresaServiceImpl implements EmpresaService {
         return empresa.isPresent();
     }
 
-    @Override
-    public List<Enum> getOptionsTipoEmpresa() {
-        List<Enum> optionsTipoEmpresa = new ArrayList<>();
-        optionsTipoEmpresa.add(TipoEmpresa.PRESTACAO_DE_SERVICO);
-        optionsTipoEmpresa.add(TipoEmpresa.COMERCIO);
-        optionsTipoEmpresa.add(TipoEmpresa.INDUSTRIA);
-        optionsTipoEmpresa.add(TipoEmpresa.OUTROS);
-        return optionsTipoEmpresa;
-    }
 }

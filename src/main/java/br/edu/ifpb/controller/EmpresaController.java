@@ -3,6 +3,7 @@ package br.edu.ifpb.controller;
 import br.edu.ifpb.abstraction.EmpresaService;
 import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.enums.TipoEmpresa;
 import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 import lombok.Data;
@@ -54,8 +56,15 @@ public class EmpresaController {
         mensagemDeErro.setSeverity(FacesMessage.SEVERITY_ERROR);
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
-
-    public List<Enum> optionsTipoEmpresa() {
-        return empresaService.getOptionsTipoEmpresa();
+    
+    public SelectItem[] optionsTipoEmpresa() {
+        SelectItem[] items = new SelectItem[TipoEmpresa.values().length];
+        int i = 0;
+        for (TipoEmpresa t : TipoEmpresa.values()) {
+            items[i++] = new SelectItem(t, t.getLabel());
+        }
+        return items;
     }
+
+    
 }

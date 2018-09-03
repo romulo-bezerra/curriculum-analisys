@@ -32,12 +32,4 @@ public class CandidatoServiceImpl implements CandidatoService {
         return candidato.isPresent();
     }
 
-    @Override
-    public List<Enum> getOptionsSexo() {
-        List<Enum> optionsSexo = new ArrayList<>();
-        optionsSexo.add(Sexo.MASCULINO);
-        optionsSexo.add(Sexo.FEMININO);
-        return optionsSexo;
-    }
-    
 }
