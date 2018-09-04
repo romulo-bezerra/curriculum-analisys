@@ -9,6 +9,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 import lombok.Data;
 import br.edu.ifpb.abstractions.LoginService;
+import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.enums.TipoLogin;
 import javax.faces.model.SelectItem;
 
@@ -43,8 +44,23 @@ public class LoginController {
                     return "index.xhtml";
                 }
             }
+        } else {
+            Empresa empresaLogada = loginService.authenticateCompany(email, senha);
+            if (empresaLogada == null) {
+                mensagemErro("Login", "A empresa informada não está cadastrada!");
+                return null;
+            } else {
+                if (!empresaLogada.getSenha().equalsIgnoreCase(senha)) {
+                    mensagemErro("Login", "Os dados informados estão incorretos!");
+                    return null;
+                } else {
+                    sessao = (HttpSession) FacesContext.getCurrentInstance()
+                            .getExternalContext().getSession(true);
+                    sessao.setAttribute("empresa", empresaLogada);
+                    return "index.xhtml";
+                }
+            }
         }
-        return null; //Temp
     }
 
     public SelectItem[] optionsTipoLogin() {

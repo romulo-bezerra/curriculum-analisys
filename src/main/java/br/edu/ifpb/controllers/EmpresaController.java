@@ -56,7 +56,7 @@ public class EmpresaController {
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
     
-    public SelectItem[] optionsTipoLogin() {
+    public SelectItem[] optionsTipoEmpresa() {
         SelectItem[] items = new SelectItem[TipoEmpresa.values().length];
         int i = 0;
         for (TipoEmpresa t : TipoEmpresa.values()) {
