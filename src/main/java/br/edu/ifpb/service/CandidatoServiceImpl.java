@@ -2,9 +2,6 @@ package br.edu.ifpb.service;
 
 import br.edu.ifpb.abstraction.CandidatoService;
 import br.edu.ifpb.domain.Candidato;
-import br.edu.ifpb.enums.Sexo;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

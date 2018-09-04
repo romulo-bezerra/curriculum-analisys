@@ -4,16 +4,15 @@ import br.edu.ifpb.enums.Origem;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Idioma implements Serializable {
     
@@ -23,6 +22,11 @@ public class Idioma implements Serializable {
     @Column(nullable = false)
     private String idioma;
     @Column(nullable = false)
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Origem origem;
+    
+    public Idioma(String idioma, Origem origem) {
+        this.idioma = idioma;
+        this.origem = origem;
+    }
 }

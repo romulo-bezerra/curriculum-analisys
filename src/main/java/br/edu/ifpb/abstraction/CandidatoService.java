@@ -1,7 +1,6 @@
 package br.edu.ifpb.abstraction;
 
 import br.edu.ifpb.domain.Candidato;
-import java.util.List;
 
 public interface CandidatoService {
 

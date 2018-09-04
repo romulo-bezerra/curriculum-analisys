@@ -4,16 +4,15 @@ import br.edu.ifpb.enums.Origem;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Habilidade implements Serializable {
     
@@ -21,8 +20,14 @@ public class Habilidade implements Serializable {
     @GeneratedValue
     private int id;
     @Column(nullable = false)
-    private String atitude;
+    private String habilidade;
     @Column(nullable = false)
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Origem origem;
+    
+    public Habilidade(String habilidade, Origem origem) {
+        this.habilidade = habilidade;
+        this.origem = origem;
+    }
+    
 }
