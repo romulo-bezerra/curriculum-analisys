@@ -1,8 +1,8 @@
 package br.edu.ifpb.util;
 
-import br.edu.ifpb.abstraction.AtitudeService;
-import br.edu.ifpb.abstraction.HabilidadeService;
-import br.edu.ifpb.abstraction.IdiomaService;
+import br.edu.ifpb.abstractions.AtitudeService;
+import br.edu.ifpb.abstractions.HabilidadeService;
+import br.edu.ifpb.abstractions.IdiomaService;
 import java.util.List;
 import javax.ejb.Singleton;
 import javax.inject.Inject;

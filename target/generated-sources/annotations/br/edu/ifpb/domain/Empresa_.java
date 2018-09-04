@@ -1,14 +1,14 @@
 package br.edu.ifpb.domain;
 
 import br.edu.ifpb.domain.Vaga;
-import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.domain.embeddable.Endereco;
 import br.edu.ifpb.enums.TipoEmpresa;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-09-04T10:57:09")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-09-04T12:08:14")
 @StaticMetamodel(Empresa.class)
 public class Empresa_ { 
 

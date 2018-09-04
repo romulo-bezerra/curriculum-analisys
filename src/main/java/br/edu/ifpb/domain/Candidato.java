@@ -1,6 +1,6 @@
 package br.edu.ifpb.domain;
 
-import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.domain.embeddable.Endereco;
 import br.edu.ifpb.enums.Sexo;
 import java.io.Serializable;
 import javax.persistence.Column;

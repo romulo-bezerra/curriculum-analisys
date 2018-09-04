@@ -1,6 +1,6 @@
 package br.edu.ifpb.domain;
 
-import br.edu.ifpb.domain.embeddables.Endereco;
+import br.edu.ifpb.domain.embeddable.Endereco;
 import br.edu.ifpb.enums.TipoEmpresa;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.io.Serializable;
