@@ -1,7 +1,6 @@
 package br.edu.ifpb.domain;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -33,7 +32,7 @@ public class Vaga implements Serializable {
     @Column(nullable = false)
     private double salario;
     @Column(nullable = false)
-    private ZonedDateTime prazoInscrição;
+    private String prazoInscrição;
     @Lob
     @Column(nullable = false)
     private String missaoDaEmpresa;

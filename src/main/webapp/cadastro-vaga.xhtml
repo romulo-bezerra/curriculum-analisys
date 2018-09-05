@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Cadastro Vaga</title>
@@ -9,8 +11,8 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
         <link href="css/style.css" type="text/css" rel="stylesheet"/>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
 
         <nav>
             <div class="nav-wrapper teal">
@@ -25,11 +27,12 @@
             <div class="col s6">
                 <h5>Cadastro de Vaga</h5>
             </div>
-            <form class="col s12">
+            <h:form class="col s12">
                 <div class="row">
                   <div class="input-field col s6">
                     <i class="material-icons prefix">title</i>
-                    <input id="titulo" type="text" class="validate">
+                    <h:inputText id="titulo" class="validate" value="#{empresaController.empresa.nomeFantasia}" required="true"/>
+                    <!--<input id="titulo" type="text" class="validate">-->
                     <label for="titulo">Título da vaga</label>
                   </div>
                     <div class="input-field col s6">
@@ -97,16 +100,17 @@
                       <label for="textarea2">Visão</label>
                       <span class="helper-text" data-error="wrong" data-success="right">Digite a visão da empresa</span>
                     </div>
-                    <!-- <div class="input-field col s12">
-                      <i class="material-icons prefix">filter_tilt_shift</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Objetivo</label>
-                    </div> -->
                 </div>
+                
+                <div class="left">
+                    <label><h:messages class="red-text center"/></label>
+                </div>
+                
                 <div class="right">
-                    <a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadstrar</a>
+                    <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{empresaController.save()}"/>
+                    <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadstrar</a>-->
                 </div>
-            </form>
+            </h:form>
         </div>
 
         <footer class="page-footer teal"></footer>
@@ -116,5 +120,5 @@
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
 
-    </body>
+    </h:body>
 </html>
