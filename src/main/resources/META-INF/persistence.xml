@@ -9,6 +9,7 @@
         <class>br.edu.ifpb.domain.Idioma</class>
         <class>br.edu.ifpb.domain.InscricaoVaga</class>
         <class>br.edu.ifpb.domain.Vaga</class>
+        <class>br.edu.ifpb.converters.LocalDateConverter</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

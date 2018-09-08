@@ -8,7 +8,7 @@
         <title>Cadastro Vaga</title>
 
         <!-- CSS  -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
         <link href="css/style.css" type="text/css" rel="stylesheet"/>
     </h:head>
@@ -21,7 +21,7 @@
                     <li><a class="white-text" href="badges.html"><i class="material-icons right white-text">home</i>Início</a></li>
                 </ul>
             </div>
-        </nav><br>
+        </nav><br/>
 
         <div class="row container">
             <div class="col s6">
@@ -29,83 +29,95 @@
             </div>
             <h:form class="col s12">
                 <div class="row">
-                  <div class="input-field col s6">
-                    <i class="material-icons prefix">title</i>
-                    <h:inputText id="titulo" class="validate" value="#{empresaController.empresa.nomeFantasia}" required="true"/>
-                    <!--<input id="titulo" type="text" class="validate">-->
-                    <label for="titulo">Título da vaga</label>
-                  </div>
                     <div class="input-field col s6">
-                      <i class="material-icons prefix">description</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Descrição da vaga</label>
+                        <i class="material-icons prefix">title</i>
+                        <h:inputText id="titulo" class="validate" value="#{vagaController.vaga.titulo}" required="true"/>
+                        <!--<input id="titulo" type="text" class="validate">-->
+                        <label for="titulo">Título da vaga</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">description</i>
+                        <h:inputTextarea id="descricaoVaga" class="materialize-textarea validate" value="#{vagaController.vaga.descricao}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" ></textarea>-->
+                        <label for="descricaoVaga">Descrição da vaga</label>
                     </div>
 
                     <div class="input-field col s3">
                         <i class="material-icons prefix">timer</i>
-                        <select>
-                            <option value="" disabled selected>Escolha uma opção</option>
-                            <option value="1">1 - 3</option>
-                            <option value="2">3 - 6</option>
-                            <option value="3">6 - 8</option>
-                            <option value="4">8 - 10</option>
-                            <option value="5">10 - 12</option>
-                        </select>
+                        <h:selectOneMenu id="tipoEmpresa" value="#{vagaController.vaga.horasDiarias}" 
+                                         required="true" requiredMessage="Escolha uma opção para as horas diárias">
+                            <f:selectItem itemLabel="Escolha uma opção" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="1 - 3" itemValue="1 - 3" noSelectionOption="false"/>
+                            <f:selectItem itemLabel="3 - 6" itemValue="3 - 6" noSelectionOption="false"/>
+                            <f:selectItem itemLabel="6 - 8" itemValue="6 - 8" noSelectionOption="false"/>
+                            <f:selectItem itemLabel="8 - 10" itemValue="8 - 10" noSelectionOption="false"/>
+                            <f:selectItem itemLabel="10 - 12" itemValue="10 - 12" noSelectionOption="false"/>
+                            <f:selectItem itemLabel="Outras" itemValue="Outras" noSelectionOption="false"/>
+                        </h:selectOneMenu>
                         <label>Horas diárias</label>
                     </div>
 
                     <div class="input-field col s3">
                         <i class="material-icons prefix">content_paste</i>
-                        <input id="numero_vagas" type="text" class="validate">
+                        <h:inputText id="numeroVagas" class="validate" value="#{vagaController.vaga.numeroVagas}" required="true"/>
+                        <!--<input id="numero_vagas" type="text" class="validate"/>-->
                         <label for="numero_vagas">Número de vagas</label>
                     </div>
                     <div class="input-field col s3">
                         <i class="material-icons prefix">monetization_on</i>
-                        <input id="empresario" type="text" class="validate">
-                        <label for="empresario">Salário</label>
+                        <h:inputText id="salario" class="validate" value="#{vagaController.vaga.salario}" required="true"/>
+                        <!--<input id="empresario" type="text" class="validate"/>-->
+                        <label for="salario">Salário</label>
                     </div>
                     <div class="input-field col s3">
                         <i class="material-icons prefix">date_range</i>
-                        <input id="telefone" type="tel" class="validate">
-                        <label for="empresario">Prazo de Inscrição</label>
+                        <h:inputText id="prazoInscricao" class="validate" value="#{vagaController.vaga.dataMaxInscricao}" 
+                                     required="true" converter="convert.StringToLocalDate" converterMessage="O formato da data deve ser dd/mm/aaaa"/>
+                        <!--<input id="telefone" type="tel" class="validate"/>-->
+                        <label for="prazoInscricao">Prazo de Inscrição</label>
                     </div>
 
                     <div class="input-field col s12">
-                      <i class="material-icons prefix">assignment</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Habilidades</label>
-                      <span class="helper-text" data-error="wrong" data-success="right">Digite as habilidades requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: Coordenar a manutenção dos equipamentos de informática;</span>
+                        <i class="material-icons prefix">assignment</i>
+                        <h:inputTextarea id="habilidades" class="validate materialize-textarea" value="#{vagaController.habilidadesLongString}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+                        <label for="habilidades">Habilidades</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Digite as habilidades requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: Coordenar a manutenção dos equipamentos de informática;</span>
                     </div>
                     <div class="input-field col s12">
-                      <i class="material-icons prefix">import_contacts</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Idiomas</label>
-                      <span class="helper-text" data-error="wrong" data-success="right">Digite as habilidades linguísticas requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: português; inglês;</span>
+                        <i class="material-icons prefix">import_contacts</i>
+                        <h:inputTextarea id="idiomas" class="validate materialize-textarea" value="#{vagaController.idiomasLongString}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+                        <label for="idiomas">Idiomas</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Digite as habilidades linguísticas requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: português; inglês;</span>
                     </div>
                     <div class="input-field col s12">
-                      <i class="material-icons prefix">grade</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Atitudes</label>
-                      <span class="helper-text" data-error="wrong" data-success="right">Digite as atitudes requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: respeito; honestidade;</span>
+                        <i class="material-icons prefix">grade</i>
+                        <h:inputTextarea id="atitudes" class="validate materialize-textarea" value="#{vagaController.atitudesLongString}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+                        <label for="atitudes">Atitudes</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Digite as atitudes requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: respeito; honestidade;</span>
                     </div>
                     <div class="input-field col s12">
-                      <i class="material-icons prefix">center_focus_strong</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Missão</label>
-                      <span class="helper-text" data-error="wrong" data-success="right">Digite a missão da empresa</span>
+                        <i class="material-icons prefix">center_focus_strong</i>
+                        <h:inputTextarea id="missao" class="validate materialize-textarea" value="#{vagaController.vaga.missaoDaEmpresa}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+                        <label for="missao">Missão</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Digite a missão da empresa</span>
                     </div>
                     <div class="input-field col s12">
-                      <i class="material-icons prefix">visibility</i>
-                      <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
-                      <label for="textarea2">Visão</label>
-                      <span class="helper-text" data-error="wrong" data-success="right">Digite a visão da empresa</span>
+                        <i class="material-icons prefix">visibility</i>
+                        <h:inputTextarea id="visao" class="validate materialize-textarea" value="#{vagaController.vaga.visaoDaEmpresa}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+                        <label for="visao">Visão</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Digite a visão da empresa</span>
                     </div>
                 </div>
-                
+
                 <div class="left">
                     <label><h:messages class="red-text center"/></label>
                 </div>
-                
+
                 <div class="right">
                     <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{empresaController.save()}"/>
                     <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadstrar</a>-->
@@ -113,7 +125,7 @@
             </h:form>
         </div>
 
-        <footer class="page-footer teal"></footer>
+        <!--<footer class="page-footer teal"></footer>-->
 
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

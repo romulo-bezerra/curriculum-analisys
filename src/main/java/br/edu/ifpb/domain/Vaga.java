@@ -1,10 +1,16 @@
 package br.edu.ifpb.domain;
 
+import br.edu.ifpb.converters.LocalDateConverter;
+import br.edu.ifpb.enums.Estado;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -32,13 +38,17 @@ public class Vaga implements Serializable {
     @Column(nullable = false)
     private double salario;
     @Column(nullable = false)
-    private String prazoInscrição;
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate dataMaxInscricao;
     @Lob
     @Column(nullable = false)
     private String missaoDaEmpresa;
     @Lob
     @Column(nullable = false)
     private String visaoDaEmpresa;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
     
     @OneToMany
     private List<Idioma> idiomas;

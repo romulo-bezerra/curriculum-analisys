@@ -3,8 +3,6 @@ package br.edu.ifpb.services;
 import br.edu.ifpb.abstractions.LoginService;
 import br.edu.ifpb.domain.Candidato;
 import br.edu.ifpb.domain.Empresa;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
