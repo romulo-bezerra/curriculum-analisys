@@ -72,7 +72,7 @@
                     <div class="input-field col s3">
                         <i class="material-icons prefix">date_range</i>
                         <h:inputText id="prazoInscricao" class="validate" value="#{vagaController.vaga.dataMaxInscricao}" 
-                                     required="true" converter="convert.StringToLocalDate" converterMessage="O formato da data deve ser dd/mm/aaaa"/>
+                                     required="true"/>
                         <!--<input id="telefone" type="tel" class="validate"/>-->
                         <label for="prazoInscricao">Prazo de Inscrição</label>
                     </div>
@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="right">
-                    <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{empresaController.save()}"/>
+                    <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{vagaController.addVaga()}"/>
                     <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadstrar</a>-->
                 </div>
             </h:form>

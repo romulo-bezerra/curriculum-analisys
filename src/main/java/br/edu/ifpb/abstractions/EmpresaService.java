@@ -8,4 +8,6 @@ public interface EmpresaService {
 
     public boolean isRegistered(String email);
     
+    public void update(Empresa novoEstado);
+    
 }

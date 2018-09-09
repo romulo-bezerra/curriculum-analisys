@@ -33,7 +33,8 @@ public class VagaServiceImpl implements VagaService {
     @Override
     public List<Idioma> extractIdiomas(String text) {
         List<Idioma> returnIdiomas = new ArrayList<>();
-        String[] idiomas = text.trim().split(";");
+        String textTrim = text.replace(" ", "");
+        String[] idiomas = textTrim.split(";");
         
         //Temp
         log.log(Level.INFO, "Resultado Idiomas = {0}", Arrays.toString(idiomas));
@@ -47,7 +48,8 @@ public class VagaServiceImpl implements VagaService {
     @Override
     public List<Habilidade> extractHabilidades(String text) {
         List<Habilidade> returnHabilidades = new ArrayList<>();
-        String[] habilidades = text.trim().split(";");
+        String textTrim = text.replace(" ", "");
+        String[] habilidades = textTrim.split(";");
         for (String habilidade : habilidades) {
             returnHabilidades.add(new Habilidade(habilidade, Origem.ORIGINARIO_DO_CANDIDATO));
         }
@@ -57,7 +59,8 @@ public class VagaServiceImpl implements VagaService {
     @Override
     public List<Atitude> extractAtitudes(String text) {
         List<Atitude> returnAtitudes = new ArrayList<>();
-        String[] atitudes = text.trim().split(";");
+        String textTrim = text.replace(" ", "");
+        String[] atitudes = textTrim.split(";");
         for (String atitude : atitudes) {
             returnAtitudes.add(new Atitude(atitude, Origem.ORIGINARIO_DO_CANDIDATO));
         }

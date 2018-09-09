@@ -25,19 +25,19 @@ public class RestorerCSV {
 
     public void restoreIdiomasCSV() {
         //Temp: Trocar por caminho relativo
-        List<String> lista = readCSV.readCSV("/home/romulo/Área de Trabalho/curriculum-analisys/src/main/resources/csvs/idiomas.csv");
+        List<String> lista = readCSV.readCSV("/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/resources/csvs/idiomas.csv");
         idiomaService.save(lista);
     }
 
     public void restoreHabilidadesCSV() {
         //Temp: Trocar por caminho relativo
-        List<String> lista = readCSV.readCSV("/home/romulo/Área de Trabalho/curriculum-analisys/src/main/resources/csvs/habilidades-vaga-programador.csv");
+        List<String> lista = readCSV.readCSV("/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/resources/csvs/habilidades-vaga-programador.csv");
         habilidadeService.save(lista);
     }
 
     public void restoreAtitudesCSV() {
         //Temp: Trocar por caminho relativo
-        List<String> lista = readCSV.readCSV("/home/romulo/Área de Trabalho/curriculum-analisys/src/main/resources/csvs/atitudes.csv");
+        List<String> lista = readCSV.readCSV("/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/resources/csvs/atitudes.csv");
         atitudeService.save(lista);
     }
 

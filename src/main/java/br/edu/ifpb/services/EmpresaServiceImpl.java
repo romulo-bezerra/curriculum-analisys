@@ -29,4 +29,9 @@ public class EmpresaServiceImpl implements EmpresaService {
         return empresa.isPresent();
     }
 
+    @Override
+    public void update(Empresa novoEstado) {
+        entityManager.merge(novoEstado);
+    }
+
 }
