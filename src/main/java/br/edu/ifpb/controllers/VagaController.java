@@ -80,4 +80,8 @@ public class VagaController {
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
     
+    public List<Vaga> findAllVagas(Empresa empresa){
+        return vagaService.findAllVagas(empresa);
+    }
+    
 }

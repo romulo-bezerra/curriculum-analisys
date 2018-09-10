@@ -1,6 +1,7 @@
 package br.edu.ifpb.abstractions;
 
 import br.edu.ifpb.domain.Atitude;
+import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.domain.Habilidade;
 import br.edu.ifpb.domain.Idioma;
 import br.edu.ifpb.domain.Vaga;
@@ -19,5 +20,7 @@ public interface VagaService {
     public boolean containNumber(String text);
     
     public boolean containInvalidCharacter(String text);
+    
+    public List<Vaga> findAllVagas(Empresa empresa);
 
 }

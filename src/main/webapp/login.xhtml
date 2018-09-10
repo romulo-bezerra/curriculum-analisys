@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -70,8 +71,7 @@
                         </div>
 
                         <div class="right">
-                            <h:commandButton  value="Login" class="waves-effect waves-light btn-large" action="#{loginController.login()}"/>
-                            <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">forward</i>Entrar</a>-->
+                            <a jsf:action="#{loginController.login()}" class="waves-effect waves-light btn-large"><i class="material-icons left">forward</i>Entrar</a>
                         </div>
                     </div>
                 </div>

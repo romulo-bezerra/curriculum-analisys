@@ -2,6 +2,7 @@ package br.edu.ifpb.services;
 
 import br.edu.ifpb.abstractions.VagaService;
 import br.edu.ifpb.domain.Atitude;
+import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.domain.Habilidade;
 import br.edu.ifpb.domain.Idioma;
 import br.edu.ifpb.domain.Vaga;
@@ -80,6 +81,11 @@ public class VagaServiceImpl implements VagaService {
             ']', '{', '}', 'ª', 'º', '^', '~', '"'};
         return (StringUtils.containsAny(text, invalidCharacters)
                 || StringUtils.isBlank(text) || StringUtils.isEmpty(text));
+    }
+
+    @Override
+    public List<Vaga> findAllVagas(Empresa empresa) {
+        return empresa.getVagas();
     }
 
 }

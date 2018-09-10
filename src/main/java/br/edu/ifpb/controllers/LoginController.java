@@ -52,7 +52,7 @@ public class LoginController implements Serializable {
                     mensagemErro("Login", "Os dados informados estão incorretos!");
                     return null;
                 } else {
-                    return "index.xhtml";
+                    return "home-empresa.xhtml";
                 }
             }
         }
