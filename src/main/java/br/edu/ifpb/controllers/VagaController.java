@@ -16,7 +16,6 @@ import br.edu.ifpb.domain.Vaga;
 import br.edu.ifpb.enums.Estado;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpSession;
 
 @Named
 @RequestScoped
@@ -27,12 +26,9 @@ public class VagaController {
     private String idiomasLongString;
     private String habilidadesLongString;
     private String atitudesLongString;
-    private HttpSession sessao;
     
     @PostConstruct
     public void initObjects() {
-        sessao = (HttpSession) FacesContext.getCurrentInstance()
-                .getExternalContext().getSession(true);
         vaga = new Vaga();
     }
     
@@ -41,7 +37,7 @@ public class VagaController {
     @EJB
     private VagaService vagaService;
     
-    public String addVaga() {
+    public String addVaga(Empresa empresa) {
         if (vagaService.containInvalidCharacter(idiomasLongString)
                 || vagaService.containNumber(idiomasLongString)) {
             mensagemErro("Cadastro Vaga", "O campo idiomas contêm caracteres ilegais");
@@ -64,7 +60,6 @@ public class VagaController {
             vaga.setAtitudes(atitudes);
             vaga.setEstado(Estado.ABERTA);
             
-            Empresa empresa = (Empresa) sessao.getAttribute("empresa");
             empresa.addVaga(vaga);
             
             empresaService.update(empresa);

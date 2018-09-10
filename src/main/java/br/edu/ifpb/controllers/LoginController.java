@@ -2,26 +2,27 @@ package br.edu.ifpb.controllers;
 
 import br.edu.ifpb.domain.Candidato;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
 import lombok.Data;
 import br.edu.ifpb.abstractions.LoginService;
 import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.enums.TipoLogin;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
 
 @Named
-@RequestScoped
+@SessionScoped
 @Data
-public class LoginController {
+public class LoginController implements Serializable {
 
     private String email;
     private String senha;
     private TipoLogin tipoLogin;
-    private HttpSession sessao;
+    private Candidato candidatoLogado;
+    private Empresa empresaLogada;
 
     @EJB
     private LoginService loginService;
@@ -29,7 +30,7 @@ public class LoginController {
     public String login() {
 
         if (tipoLogin.equals(TipoLogin.CANDIDATO)) {
-            Candidato candidatoLogado = loginService.authenticateUser(email, senha);
+            candidatoLogado = loginService.authenticateUser(email, senha);
             if (candidatoLogado == null) {
                 mensagemErro("Login", "O usuário informado não está cadastrado!");
                 return null;
@@ -38,14 +39,11 @@ public class LoginController {
                     mensagemErro("Login", "Os dados informados estão incorretos!");
                     return null;
                 } else {
-                    sessao = (HttpSession) FacesContext.getCurrentInstance()
-                            .getExternalContext().getSession(true);
-                    sessao.setAttribute("candidato", candidatoLogado);
                     return "index.xhtml";
                 }
             }
         } else {
-            Empresa empresaLogada = loginService.authenticateCompany(email, senha);
+            empresaLogada = loginService.authenticateCompany(email, senha);
             if (empresaLogada == null) {
                 mensagemErro("Login", "A empresa informada não está cadastrada!");
                 return null;
@@ -54,9 +52,6 @@ public class LoginController {
                     mensagemErro("Login", "Os dados informados estão incorretos!");
                     return null;
                 } else {
-                    sessao = (HttpSession) FacesContext.getCurrentInstance()
-                            .getExternalContext().getSession(true);
-                    sessao.setAttribute("empresa", empresaLogada);
                     return "index.xhtml";
                 }
             }
