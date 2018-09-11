@@ -69,7 +69,7 @@ public class VagaController {
             //Temp
             mensagemErro("Cadastro Vaga", "VAGA CADASTRADA!");
             
-            return null;
+            return "vagas-empresa.xhtml";
         }
         
     }
