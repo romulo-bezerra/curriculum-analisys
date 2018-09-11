@@ -39,13 +39,13 @@ public class EmpresaServiceImpl implements EmpresaService {
     @Override
     public List<Empresa> findAllByAttributes(String infoRelated) {
         String querySql = "SELECT e FROM Empresa e "
-                + "WHERE e.nomeFantasia= :infoRelated "
-                + "OR e.cnpj= :infoRelated "
-                + "OR e.empresario= :infoRelated "
-                + "OR e.razaoSocial= :infoRelated";
+                + "WHERE UPPER(e.nomeFantasia) LIKE :infoRelated "
+                + "OR UPPER(e.cnpj) LIKE :infoRelated "
+                + "OR UPPER(e.empresario) LIKE :infoRelated "
+                + "OR UPPER(e.razaoSocial) LIKE :infoRelated ";
 
         TypedQuery<Empresa> query = entityManager.createQuery(querySql, Empresa.class);
-        query.setParameter("infoRelated", infoRelated);
+        query.setParameter("infoRelated", "%" + infoRelated.toUpperCase() + "%");
 
         Optional<Empresa> empresa = query.getResultList().stream().findFirst();
         if (empresa.isPresent()) {
