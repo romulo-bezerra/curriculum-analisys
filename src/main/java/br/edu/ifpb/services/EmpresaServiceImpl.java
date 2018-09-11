@@ -2,6 +2,8 @@ package br.edu.ifpb.services;
 
 import br.edu.ifpb.abstractions.EmpresaService;
 import br.edu.ifpb.domain.Empresa;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -13,7 +15,7 @@ public class EmpresaServiceImpl implements EmpresaService {
 
     @PersistenceContext(unitName = "curriculum-analisys")
     EntityManager entityManager;
-    
+
     @Override
     public void save(Empresa empresa) {
         entityManager.persist(empresa);
@@ -32,6 +34,37 @@ public class EmpresaServiceImpl implements EmpresaService {
     @Override
     public void update(Empresa novoEstado) {
         entityManager.merge(novoEstado);
+    }
+
+    @Override
+    public List<Empresa> findAllByAttributes(String infoRelated) {
+        String querySql = "SELECT e FROM Empresa e "
+                + "WHERE e.nomeFantasia= :infoRelated "
+                + "OR e.cnpj= :infoRelated "
+                + "OR e.empresario= :infoRelated "
+                + "OR e.razaoSocial= :infoRelated";
+
+        TypedQuery<Empresa> query = entityManager.createQuery(querySql, Empresa.class);
+        query.setParameter("infoRelated", infoRelated);
+
+        Optional<Empresa> empresa = query.getResultList().stream().findFirst();
+        if (empresa.isPresent()) {
+            return query.getResultList();
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<Empresa> findAll() {
+        String querySql = "SELECT e FROM Empresa e";
+
+        TypedQuery<Empresa> query = entityManager.createQuery(querySql, Empresa.class);
+
+        if (query.getResultList() == null) {
+            return new ArrayList<>();
+        }
+        return query.getResultList();
     }
 
 }

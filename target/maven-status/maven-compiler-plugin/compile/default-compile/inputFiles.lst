@@ -24,6 +24,7 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Candidato.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Vaga.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/enums/TipoEmpresa.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/BuscaEmpresaController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/services/LoginServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/enums/TipoLogin.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/LoginController.java

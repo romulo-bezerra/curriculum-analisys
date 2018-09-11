@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Home Empresa</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+        <style type="text/css">
+            .datalist-noborder .ui-widget-content {
+                border: none;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <h:form>
+                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
+                    </h:form>
+                </ul>
+            </div>
+        </nav><br/>
+
+        <h:form>
+            <div class="row">
+                <div class="input-field col s5 offset-l3">
+                    <i class="material-icons prefix">business</i>
+                    <h:inputText id="buscaEmpresa" value="#{buscaEmpresaController.infoRelated}" class="validate"/>
+                    <label for="busca">Busque pelo Nome Fantasia, CNPJ, Empresario ou Razão Social</label>
+                </div>
+                <div class="col s3">
+                    <button class="btn-floating" jsf:action="#{buscaEmpresaController.findAllByAttributes()}" style="margin-top: 6%"><i class="material-icons prefix">search</i></button>
+                </div>
+            </div>
+        </h:form>
+
+        <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado == false}">
+            <div class="datalist-noborder">
+                <p:dataList value="#{buscaEmpresaController.findAll()}" 
+                            var="empresa" itemType="Empresa" id="empresas">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/b6.jpg"/>
+                                <span class="card-title">#{empresa.nomeFantasia}</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                            </div>
+                            <div class="card-content">
+                                <span>CNPJ: #{empresa.cnpj}</span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </p:dataList>
+            </div>
+        </div>
+
+        <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false}">
+            <div class="datalist-noborder">
+                <p:dataList value="#{buscaEmpresaController.findAllByAttributes()}" 
+                            var="empresa" itemType="Empresa" id="empresasBuscadas">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/b6.jpg"/>
+                                <span class="card-title">#{empresa.nomeFantasia}</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                            </div>
+                            <div class="card-content">
+                                <span>CNPJ: #{empresa.cnpj}</span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </p:dataList>
+            </div>
+        </div>
+
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+    </h:body>
+</html>

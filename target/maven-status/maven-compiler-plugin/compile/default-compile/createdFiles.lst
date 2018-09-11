@@ -9,6 +9,7 @@ br/edu/ifpb/initapplication/LoaderRestores.class
 br/edu/ifpb/domain/Atitude.class
 br/edu/ifpb/domain/Empresa.class
 br/edu/ifpb/abstractions/LoginService.class
+br/edu/ifpb/controllers/BuscaEmpresaController.class
 br/edu/ifpb/services/IdiomaServiceImpl.class
 br/edu/ifpb/abstractions/CandidatoService.class
 br/edu/ifpb/abstractions/EmpresaService.class
