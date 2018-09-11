@@ -19,7 +19,6 @@
                 border: none;
             }
         </style>
-
     </h:head>
     <h:body>
 
@@ -47,7 +46,8 @@
             </div>
         </h:form>
 
-        <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado == false}">
+        <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado == false 
+                                                   and inscricaoEmVagaController.empresaSelecionada == false}">
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAll()}" 
                             var="empresa" itemType="Empresa" id="empresas">
@@ -56,7 +56,9 @@
                             <div class="card-image">
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{empresa.nomeFantasia}</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                                <h:form>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoEmVagaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
+                                </h:form>
                             </div>
                             <div class="card-content">
                                 <span>CNPJ: #{empresa.cnpj}</span><br/>
@@ -67,7 +69,8 @@
             </div>
         </div>
 
-        <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false}">
+        <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false 
+                                                   and  inscricaoEmVagaController.empresaSelecionada == false}">
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAllByAttributes()}" 
                             var="empresa" itemType="Empresa" id="empresasBuscadas">
@@ -76,10 +79,40 @@
                             <div class="card-image">
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{empresa.nomeFantasia}</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                                <h:form>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoEmVagaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
+                                </h:form>
                             </div>
                             <div class="card-content">
                                 <span>CNPJ: #{empresa.cnpj}</span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </p:dataList>
+            </div>
+        </div>
+
+        <div class="row container" jsf:rendered="#{inscricaoEmVagaController.empresaSelecionada != false}">
+            <div class="datalist-noborder">
+                <p:dataList value="#{inscricaoEmVagaController.findAllVagas()}" 
+                            var="vaga" itemType="vaga" id="vagas">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/b6.jpg"/>
+                                <span class="card-title">#{vaga.titulo}</span>
+                                <h:form>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                                </h:form>
+                            </div>
+                            <div class="card-content">
+                                <span>Descrição: #{vaga.descricao}</span><br/>
+                                <label>Salário: #{vaga.salario}</label><br/>
+                                <label>Horas diárias: #{vaga.horasDiarias}</label><br/>
+                                <label>Número vagas: #{vaga.numeroVagas}</label><br/>
+                                <label>Estado: #{vaga.estado.label}</label><br/>
+                                <label>Missão: #{vaga.missaoDaEmpresa}</label><br/>
+                                <label>Visão: #{vaga.visaoDaEmpresa}</label>
                             </div>
                         </div>
                     </div>
