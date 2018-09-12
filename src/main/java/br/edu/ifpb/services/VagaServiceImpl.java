@@ -35,16 +35,16 @@ public class VagaServiceImpl implements VagaService {
     public void update(Vaga novoEstado) {
         entityManager.merge(novoEstado);
     }
-    
+
     @Override
     public List<Idioma> extractIdiomas(String text) {
         List<Idioma> returnIdiomas = new ArrayList<>();
         String textTrim = text.replace(" ", "");
         String[] idiomas = textTrim.split(";");
-        
+
         //Temp
         log.log(Level.INFO, "Resultado Idiomas = {0}", Arrays.toString(idiomas));
-        
+
         for (String idioma : idiomas) {
             returnIdiomas.add(new Idioma(idioma, Origem.ORIGINARIO_DO_CANDIDATO));
         }
@@ -91,6 +91,22 @@ public class VagaServiceImpl implements VagaService {
     @Override
     public List<Vaga> findAllVagas(Empresa empresa) {
         return empresa.getVagas();
+    }
+
+    @Override
+    public List<Atitude> getAtitudes(Vaga vaga) {
+        return vaga.getAtitudes();
+    }
+
+    @Override
+    public List<Habilidade> getHabilidades(Vaga vaga) {
+        return vaga.getHabilidades();
+    }
+
+    @Override
+    //Concertar idomas (retirar o 'avançado') e verificar se existem iguais lstados
+    public List<Idioma> getIdioma(Vaga vaga) {
+        return vaga.getIdiomas();
     }
 
 }

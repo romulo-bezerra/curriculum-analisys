@@ -32,6 +32,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">person</i>
+                        <!--<h:inputText id="nome" class="validate" value="#{candidatoController.candidato.nome}" required="true"/>-->
                         <input id="first_name" type="text" class="validate"/>
                         <label for="first_name">Nome completo</label>
                     </div>
@@ -72,22 +73,22 @@
                     </div>
 
                     <h3>Atitudes</h3>
-                    <p:selectManyCheckbox id="atitudes" value="#{atitudeController.atitudesValues}" layout="responsive" columns="3">
-                        <f:selectItems value="#{atitudeController.atitudesItems}" var="atitude" itemLabel="#{atitude}" itemValue="#{atitude}" />
+                    <p:selectManyCheckbox id="atitudes" value="#{inscricaoVagaController.atitudesValues}" layout="responsive" columns="3">
+                        <f:selectItems value="#{inscricaoVagaController.atitudesItems}" var="atitude" itemLabel="#{atitude}" itemValue="#{atitude}" />
                     </p:selectManyCheckbox>
                     <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{atitudeController.mostrarListAtittudes()}"/>
-
+                    
                     <h3>Idiomas</h3>
-                    <p:selectManyCheckbox id="idiomas" value="#{idiomaController.idiomasValues}" layout="responsive" columns="3">
-                        <f:selectItems value="#{idiomaController.idiomasItems}" var="idioma" itemLabel="#{idioma}" itemValue="#{idioma}" />
+                    <p:selectManyCheckbox id="idiomas" value="#{inscricaoVagaController.idiomasValues}" layout="responsive" columns="3">
+                        <f:selectItems value="#{inscricaoVagaController.idiomasItems}" var="idioma" itemLabel="#{idioma}" itemValue="#{idioma}" />
                     </p:selectManyCheckbox>
-                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{idiomaController.mostrarListIdiomas()}"/>
+                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{inscricaoVagaController.mostrarListIdiomas()}"/>
 
                     <h3>Habilidades</h3>
-                    <p:selectManyCheckbox id="habilidades" value="#{habilidadeController.habilidadesValues}" layout="responsive" columns="2">
-                        <f:selectItems value="#{habilidadeController.habilidadesItems}" var="habilidade" itemLabel="#{habilidade}" itemValue="#{habilidade}" />
+                    <p:selectManyCheckbox id="habilidades" value="#{inscricaoVagaController.habilidadesValues}" layout="responsive" columns="2">
+                        <f:selectItems value="#{inscricaoVagaController.habilidadesItems}" var="habilidade" itemLabel="#{habilidade}" itemValue="#{habilidade}" />
                     </p:selectManyCheckbox>
-                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{habilidadeController.mostrarListAbiliities()}"/>
+                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{inscricaoVagaController.mostrarListAbiliities()}"/>
 
                 </div>
 

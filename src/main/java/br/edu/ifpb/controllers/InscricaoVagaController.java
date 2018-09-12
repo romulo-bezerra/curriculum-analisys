@@ -1,39 +1,138 @@
 package br.edu.ifpb.controllers;
 
+import br.edu.ifpb.abstractions.AtitudeService;
+import br.edu.ifpb.abstractions.HabilidadeService;
+import br.edu.ifpb.abstractions.IdiomaService;
 import br.edu.ifpb.abstractions.VagaService;
-import br.edu.ifpb.domain.Empresa;
+import br.edu.ifpb.domain.InscricaoVaga;
 import br.edu.ifpb.domain.Vaga;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import lombok.Data;
 
 @Named
-@RequestScoped
+@SessionScoped
 @Data
-//Tem q mudar tudo; classe copiada
-public class InscricaoVagaController {
+public class InscricaoVagaController implements Serializable {
 
-    private boolean empresaSelecionada;
-    private Empresa empresa;
+    private boolean vagaSelecionada;
+    private Vaga vaga;
+    private String[] atitudesValues;
+    private List<String> atitudesItems;
+    private String[] habilidadesValues;
+    private List<String> habilidadesItems;
+    private String[] idiomasValues;
+    private List<String> idiomasItems;
+    private InscricaoVaga inscricaoVaga;
 
+    @EJB
+    private HabilidadeService habilidadeService;
+    @EJB
+    private AtitudeService atitudeService;
+    @EJB
+    private IdiomaService idiomaService;
     @EJB
     private VagaService vagaService;
 
     @PostConstruct
     public void instanceObjects() {
-        empresa = new Empresa();
+        vaga = new Vaga();
+        inscricaoVaga = new InscricaoVaga();
     }
 
-    public void selecionarEmpresa(Empresa empresa) {
-        this.empresaSelecionada = true;
-        this.empresa = empresa;
+    public String selecionarVaga(Vaga vaga) {
+        this.vagaSelecionada = true;
+        this.vaga = vaga;
+
+        atitudesItems = findRandomAttitudes();
+        habilidadesItems = findRandomAbiliity();
+        idiomasItems = findRandomLanguages();
+
+        atitudesItems.addAll(findAllAttitudesVaga());
+        habilidadesItems.addAll(findAllAbiliitiesVaga());
+        idiomasItems.addAll(findAllLanguagesVaga());
+
+        return "cadastro-em-vaga.xhtml";
     }
 
-    public List<Vaga> findAllVagas() {
-        return vagaService.findAllVagas(empresa);
+//    public String save(Candidato candidato){
+//        
+//    }
+    public List<String> findRandomAttitudes() {
+        List<String> atitudesString = new ArrayList<>();
+        atitudeService.findRandomAttitudes().forEach((atitude) -> {
+            atitudesString.add(atitude.getAtitude());
+        });
+        return atitudesString;
+    }
+
+    public List<String> findAllAttitudesVaga() {
+        List<String> atitudesString = new ArrayList<>();
+        vagaService.getAtitudes(vaga).forEach((atitude) -> {
+            atitudesString.add(atitude.getAtitude());
+        });
+        return atitudesString;
+    }
+
+    public List<String> findAllAbiliitiesVaga() {
+        List<String> habilidadesString = new ArrayList<>();
+        vagaService.getHabilidades(vaga).forEach((habilidade) -> {
+            habilidadesString.add(habilidade.getHabilidade());
+        });
+        return habilidadesString;
+    }
+
+    public List<String> findAllLanguagesVaga() {
+        List<String> idiomasString = new ArrayList<>();
+        vagaService.getIdioma(vaga).forEach((idioma) -> {
+            idiomasString.add(idioma.getIdioma());
+        });
+        return idiomasString;
+    }
+
+    public List<String> findRandomAbiliity() {
+        List<String> habilidadesString = new ArrayList<>();
+        habilidadeService.findRandomAbiliity().forEach((habilidade) -> {
+            habilidadesString.add(habilidade.getHabilidade());
+        });
+        return habilidadesString;
+    }
+
+    public List<String> findRandomLanguages() {
+        List<String> idiomasString = new ArrayList<>();
+        idiomaService.findRandomLanguages().forEach((idioma) -> {
+            idiomasString.add(idioma.getIdioma());
+        });
+        return idiomasString;
+    }
+
+    public String mostrarListIdiomas() {
+        mensagemErro("Cadastro em Vaga", Arrays.toString(idiomasValues));
+        return null;
+    }
+
+    public String mostrarListAbiliities() {
+        mensagemErro("Cadastro em Vaga", Arrays.toString(habilidadesValues));
+        return null;
+    }
+
+    public String mostrarListAtittudes() {
+        mensagemErro("Cadastro em Vaga", Arrays.toString(atitudesValues));
+        return null;
+    }
+
+    public void mensagemErro(String titlePag, String content) {
+        FacesMessage mensagemDeErro = new FacesMessage(content);
+        mensagemDeErro.setSeverity(FacesMessage.SEVERITY_ERROR);
+        FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
 
 }

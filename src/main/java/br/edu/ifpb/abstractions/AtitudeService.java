@@ -11,4 +11,6 @@ public interface AtitudeService {
     
     public List<Atitude> findRandomAttitudes();
     
+    public Atitude findById(int id);
+    
 }

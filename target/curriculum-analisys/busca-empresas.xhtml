@@ -68,8 +68,8 @@
                 </p:dataList>
             </div>
         </div>
-        
-        
+
+
         <!--Quando for pesquisada-->
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false 
                                                    and  selecionaEmpresaController.empresaSelecionada == false}">
@@ -104,7 +104,7 @@
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{vaga.titulo}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{selecionaVagaController.selecionarVaga(vaga)}"><i class="material-icons">remove_red_eye</i></a>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoVagaController.selecionarVaga(vaga)}"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">

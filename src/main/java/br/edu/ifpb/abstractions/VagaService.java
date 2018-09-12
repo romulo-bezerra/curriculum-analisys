@@ -24,5 +24,11 @@ public interface VagaService {
     public List<Vaga> findAllVagas(Empresa empresa);
     
     public void update(Vaga novoEstado);
-
+    
+    public List<Atitude> getAtitudes(Vaga vaga);
+    
+    public List<Habilidade> getHabilidades(Vaga vaga);
+    
+    public List<Idioma> getIdioma(Vaga vaga);
+    
 }

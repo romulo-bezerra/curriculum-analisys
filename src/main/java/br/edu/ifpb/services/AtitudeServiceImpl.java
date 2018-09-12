@@ -40,4 +40,9 @@ public class AtitudeServiceImpl implements AtitudeService {
         return query.getResultList();
     }
 
+    @Override
+    public Atitude findById(int id) {
+        return entityManager.find(Atitude.class, id);
+    }
+
 }
