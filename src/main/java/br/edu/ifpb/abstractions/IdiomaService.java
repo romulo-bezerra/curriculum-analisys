@@ -9,4 +9,6 @@ public interface IdiomaService {
     
     public void save(List<String> idiomas);
     
+    public List<Idioma> findRandomLanguages();
+    
 }

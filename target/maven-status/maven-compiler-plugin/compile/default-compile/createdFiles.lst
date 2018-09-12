@@ -14,6 +14,7 @@ br/edu/ifpb/domain/Candidato_.class
 br/edu/ifpb/abstractions/AtitudeService.class
 br/edu/ifpb/enums/Origem.class
 br/edu/ifpb/domain/InscricaoVaga.class
+br/edu/ifpb/controllers/AtitudeController.class
 br/edu/ifpb/services/EmpresaServiceImpl.class
 br/edu/ifpb/abstractions/IdiomaService.class
 br/edu/ifpb/enums/Estado.class
@@ -28,12 +29,14 @@ br/edu/ifpb/enums/TipoLogin.class
 br/edu/ifpb/domain/Habilidade.class
 br/edu/ifpb/restore/RestorerCSV.class
 br/edu/ifpb/abstractions/VagaService.class
+br/edu/ifpb/controllers/HabilidadeController.class
 br/edu/ifpb/controllers/EmpresaController.class
 br/edu/ifpb/domain/Empresa.class
 br/edu/ifpb/abstractions/LoginService.class
 br/edu/ifpb/services/IdiomaServiceImpl.class
 br/edu/ifpb/abstractions/CandidatoService.class
 br/edu/ifpb/services/CandidatoServiceImpl.class
+br/edu/ifpb/controllers/IdiomaController.class
 br/edu/ifpb/services/LoginServiceImpl.class
 br/edu/ifpb/controllers/InscricaoEmVagaController.class
 br/edu/ifpb/domain/Empresa_.class

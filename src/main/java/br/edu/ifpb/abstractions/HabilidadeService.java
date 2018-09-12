@@ -9,4 +9,6 @@ public interface HabilidadeService {
     
     public void save(List<String> habilidades);
     
+    public List<Habilidade> findRandomAbiliity();
+    
 }

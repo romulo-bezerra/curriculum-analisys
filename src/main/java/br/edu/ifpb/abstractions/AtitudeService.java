@@ -9,4 +9,6 @@ public interface AtitudeService {
     
     public void save(List<String> atitudes);
     
+    public List<Atitude> findRandomAttitudes();
+    
 }

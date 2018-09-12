@@ -1,4 +1,5 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/embeddable/Endereco.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/IdiomaController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/services/AtitudeServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/VagaService.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/IdiomaService.java
@@ -7,6 +8,7 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/enums/Estado.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/VagaController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/services/HabilidadeServiceImpl.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/HabilidadeController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/InscricaoVaga.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Atitude.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/LoginService.java
@@ -28,6 +30,7 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/BuscaEmpresaController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/services/LoginServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/enums/TipoLogin.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/AtitudeController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/LoginController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/CandidatoService.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/AtitudeService.java

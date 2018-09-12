@@ -14,7 +14,7 @@ import lombok.Data;
 @RequestScoped
 @Data
 public class BuscaEmpresaController {
-    
+
     private String infoRelated;
     private boolean pesquisado;
 
@@ -26,14 +26,14 @@ public class BuscaEmpresaController {
         mensagemDeErro.setSeverity(FacesMessage.SEVERITY_ERROR);
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
-    
-    public List<Empresa> findAllByAttributes(){
+
+    public List<Empresa> findAllByAttributes() {
         pesquisado = true;
         return empresaService.findAllByAttributes(infoRelated);
     }
-    
-    public List<Empresa> findAll(){
+
+    public List<Empresa> findAll() {
         return empresaService.findAll();
     }
-    
+
 }
