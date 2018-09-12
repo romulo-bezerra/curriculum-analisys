@@ -47,7 +47,7 @@
         </h:form>
 
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado == false 
-                                                   and inscricaoEmVagaController.empresaSelecionada == false}">
+                                                   and selecionaEmpresaController.empresaSelecionada == false}">
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAll()}" 
                             var="empresa" itemType="Empresa" id="empresas">
@@ -57,7 +57,7 @@
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{empresa.nomeFantasia}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoEmVagaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{selecionaEmpresaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">
@@ -68,9 +68,11 @@
                 </p:dataList>
             </div>
         </div>
-
+        
+        
+        <!--Quando for pesquisada-->
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false 
-                                                   and  inscricaoEmVagaController.empresaSelecionada == false}">
+                                                   and  selecionaEmpresaController.empresaSelecionada == false}">
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAllByAttributes()}" 
                             var="empresa" itemType="Empresa" id="empresasBuscadas">
@@ -80,7 +82,7 @@
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{empresa.nomeFantasia}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoEmVagaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{selecionaEmpresaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">
@@ -92,9 +94,9 @@
             </div>
         </div>
 
-        <div class="row container" jsf:rendered="#{inscricaoEmVagaController.empresaSelecionada != false}">
+        <div class="row container" jsf:rendered="#{selecionaEmpresaController.empresaSelecionada != false}">
             <div class="datalist-noborder">
-                <p:dataList value="#{inscricaoEmVagaController.findAllVagas()}" 
+                <p:dataList value="#{selecionaEmpresaController.findAllVagas()}" 
                             var="vaga" itemType="vaga" id="vagas">
                     <div class="col s12 m4">
                         <div class="card">
@@ -102,7 +104,7 @@
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{vaga.titulo}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{selecionaVagaController.selecionarVaga(vaga)}"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">

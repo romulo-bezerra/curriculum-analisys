@@ -32,6 +32,11 @@ public class VagaServiceImpl implements VagaService {
     }
 
     @Override
+    public void update(Vaga novoEstado) {
+        entityManager.merge(novoEstado);
+    }
+    
+    @Override
     public List<Idioma> extractIdiomas(String text) {
         List<Idioma> returnIdiomas = new ArrayList<>();
         String textTrim = text.replace(" ", "");
