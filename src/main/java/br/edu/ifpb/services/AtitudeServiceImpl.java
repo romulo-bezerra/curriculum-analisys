@@ -4,11 +4,14 @@ import br.edu.ifpb.abstractions.AtitudeService;
 import br.edu.ifpb.domain.Atitude;
 import br.edu.ifpb.enums.Origem;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 @Stateless
 public class AtitudeServiceImpl implements AtitudeService {
@@ -45,4 +48,23 @@ public class AtitudeServiceImpl implements AtitudeService {
         return entityManager.find(Atitude.class, id);
     }
 
+    @Override
+    public List<Atitude> findAllByText(String[] array) {
+
+        List<Atitude> atitudes = new ArrayList<>();
+
+        for (String atitudeString : array) {
+
+            String querySql = "SELECT a FROM Atitude a WHERE a.atitude = :atitude";
+            TypedQuery<Atitude> query = entityManager.createQuery(querySql, Atitude.class);
+            query.setParameter("atitude", atitudeString);
+
+            Optional<Atitude> atitude = query.getResultList().stream().findFirst();
+            if (atitude.isPresent()) {
+                atitudes.add(atitude.get());
+            }
+        }
+        return atitudes;
+    }
+    
 }

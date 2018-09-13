@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -30,65 +31,80 @@
             </div>
             <h:form class="col s12">
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">person</i>
-                        <!--<h:inputText id="nome" class="validate" value="#{candidatoController.candidato.nome}" required="true"/>-->
-                        <input id="first_name" type="text" class="validate"/>
-                        <label for="first_name">Nome completo</label>
+                        <h:inputText id="nome" class="validate" value="#{inscricaoVagaController.candidato.nome}" required="true"/>
+                        <!--<input id="first_name" type="text" class="validate"/>-->
+                        <label for="first_name">Nome</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">person</i>
+                        <h:inputText id="sobrenome" class="validate" value="#{inscricaoVagaController.candidato.sobreNome}" required="true"/>
+                        <!--<input id="first_name" type="text" class="validate"/>-->
+                        <label for="second_name">Sobrenome</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">mail</i>
-                        <input id="email" type="email" class="validate"/>
+                        <h:inputText id="email" class="validate" value="#{inscricaoVagaController.candidato.email}" required="true"/>
+                        <!--<input id="email" type="email" class="validate"/>-->
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">wc</i>
-                        <select>
-                            <option value="" disabled="selected">Escolha uma opção</option>
-                            <option value="1">Masculino</option>
-                            <option value="2">Fiminino</option>
-                        </select>
-                        <label>Sexo</label>
+                        <h:selectOneMenu id="sexo" value="#{inscricaoVagaController.candidato.sexo}" 
+                                         required="true" requiredMessage="Selecione o Sexo">
+                            <f:selectItem itemLabel="Escolha o sexo" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{candidatoController.optionsSexo()}" 
+                                           var="sexo" itemLabel="#{sexo}" itemValue="#{sexo}"/> 
+                        </h:selectOneMenu>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">faces</i>
-                        <input id="idade" type="text" class="validate"/>
+                        <h:inputText id="idade" class="validate" value="#{inscricaoVagaController.candidato.idade}" required="true"/>
+                        <!--<input id="idade" type="text" class="validate"/>-->
                         <label for="idade">Idade</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">language</i>
-                        <input id="nacionalidade" type="text" class="validate"/>
+                        <h:inputText id="nacionalidade" class="validate" value="#{inscricaoVagaController.candidato.nacionalidade}" required="true"/>
+                        <!--<input id="nacionalidade" type="text" class="validate"/>-->
                         <label for="nacionalidade">Nacionalidade</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
-                        <input id="telefone" type="tel" class="validate"/>
+                        <h:inputText id="telefone" class="validate" value="#{inscricaoVagaController.candidato.telefone}" required="true"/>
+                        <!--<input id="telefone" type="tel" class="validate"/>-->
                         <label for="telefone">Telefone</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">adjusts</i>
-                        <textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>
+                        <h:inputTextarea id="objetivo" class="validate materialize-textarea" value="#{inscricaoVagaController.inscricaoVaga.objetivo}" required="true"/>
+                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
                         <label for="textarea2">Objetivo</label>
                         <span class="helper-text" data-error="wrong" data-success="right">Qual é seu objetivo com para com a empresa?</span>
                     </div>
 
-                    <h3>Atitudes</h3>
-                    <p:selectManyCheckbox id="atitudes" value="#{inscricaoVagaController.atitudesValues}" layout="responsive" columns="3">
-                        <f:selectItems value="#{inscricaoVagaController.atitudesItems}" var="atitude" itemLabel="#{atitude}" itemValue="#{atitude}" />
-                    </p:selectManyCheckbox>
-                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{atitudeController.mostrarListAtittudes()}"/>
-                    
-                    <h3>Idiomas</h3>
-                    <p:selectManyCheckbox id="idiomas" value="#{inscricaoVagaController.idiomasValues}" layout="responsive" columns="3">
-                        <f:selectItems value="#{inscricaoVagaController.idiomasItems}" var="idioma" itemLabel="#{idioma}" itemValue="#{idioma}" />
-                    </p:selectManyCheckbox>
-                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{inscricaoVagaController.mostrarListIdiomas()}"/>
+                    <div class="col s12">
 
-                    <h3>Habilidades</h3>
-                    <p:selectManyCheckbox id="habilidades" value="#{inscricaoVagaController.habilidadesValues}" layout="responsive" columns="2">
-                        <f:selectItems value="#{inscricaoVagaController.habilidadesItems}" var="habilidade" itemLabel="#{habilidade}" itemValue="#{habilidade}" />
-                    </p:selectManyCheckbox>
-                    <h:commandButton  value="Testar" class="waves-effect waves-light btn-large" action="#{inscricaoVagaController.mostrarListAbiliities()}"/>
+                        <h5>Atitudes</h5>
+                        <b><label>Marque as atitudes que lhe corresponde</label></b>
+
+                        <p:selectManyCheckbox id="atitudes" value="#{inscricaoVagaController.atitudesValues}" layout="responsive" columns="3">
+                            <f:selectItems value="#{inscricaoVagaController.atitudesItems}" var="atitude" itemLabel="#{atitude}" itemValue="#{atitude}" />
+                        </p:selectManyCheckbox>
+
+                        <h5>Idiomas</h5>
+                        <b><label>Marque os idiomas que possui aptidão</label></b>
+                        <p:selectManyCheckbox id="idiomas" value="#{inscricaoVagaController.idiomasValues}" layout="responsive" columns="3">
+                            <f:selectItems value="#{inscricaoVagaController.idiomasItems}" var="idioma" itemLabel="#{idioma}" itemValue="#{idioma}" />
+                        </p:selectManyCheckbox>
+
+                        <h5>Habilidades</h5>
+                        <b><label>Marque as habilidades que lhe são pertecentes sobre a vaga</label></b>
+                        <p:selectManyCheckbox id="habilidades" value="#{inscricaoVagaController.habilidadesValues}" layout="responsive" columns="1">
+                            <f:selectItems value="#{inscricaoVagaController.habilidadesItems}" var="habilidade" itemLabel="#{habilidade}" itemValue="#{habilidade}" />
+                        </p:selectManyCheckbox>
+                    </div>
 
                 </div>
 
@@ -97,7 +113,7 @@
                 </div>
 
                 <div class="right">
-                    <a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadastrar</a>
+                    <a jsf:action="#{inscricaoVagaController.save()}" class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadastrar</a>
                 </div>
             </h:form>
         </div>

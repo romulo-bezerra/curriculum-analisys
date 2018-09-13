@@ -6,6 +6,7 @@ br/edu/ifpb/services/VagaServiceImpl.class
 br/edu/ifpb/initapplication/LoaderRestores.class
 br/edu/ifpb/domain/Atitude.class
 br/edu/ifpb/controllers/BuscaEmpresaController.class
+br/edu/ifpb/services/InscricaoVagaServiceImpl.class
 br/edu/ifpb/abstractions/EmpresaService.class
 br/edu/ifpb/controllers/CandidatoController.class
 br/edu/ifpb/controllers/VagaController.class
@@ -37,6 +38,7 @@ br/edu/ifpb/services/IdiomaServiceImpl.class
 br/edu/ifpb/abstractions/CandidatoService.class
 br/edu/ifpb/services/CandidatoServiceImpl.class
 br/edu/ifpb/services/LoginServiceImpl.class
+br/edu/ifpb/abstractions/InscricaoVagaService.class
 br/edu/ifpb/domain/Empresa_.class
 br/edu/ifpb/controllers/LoginController.class
 br/edu/ifpb/domain/Vaga_.class

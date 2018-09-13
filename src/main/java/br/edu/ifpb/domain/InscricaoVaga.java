@@ -29,6 +29,8 @@ public class InscricaoVaga implements Serializable {
     @OneToOne
     private Candidato candidato;
 
+    private String objetivo;
+    
     public InscricaoVaga() {
         this.idiomas = new ArrayList<>();
         this.habilidades = new ArrayList<>();

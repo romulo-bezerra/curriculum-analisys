@@ -11,4 +11,6 @@ public interface HabilidadeService {
     
     public List<Habilidade> findRandomAbiliity();
     
+    public List<Habilidade> findAllByText(String[] array);
+    
 }

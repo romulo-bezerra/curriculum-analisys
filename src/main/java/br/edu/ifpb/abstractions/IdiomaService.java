@@ -11,4 +11,6 @@ public interface IdiomaService {
     
     public List<Idioma> findRandomLanguages();
     
+    public List<Idioma> findAllByText(String[] array);
+    
 }

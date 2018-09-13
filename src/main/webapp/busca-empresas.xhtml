@@ -104,7 +104,7 @@
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{vaga.titulo}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoVagaController.selecionarVaga(vaga)}"><i class="material-icons">remove_red_eye</i></a>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoVagaController.selecionarVaga(vaga, loginController.candidatoLogado)}"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">

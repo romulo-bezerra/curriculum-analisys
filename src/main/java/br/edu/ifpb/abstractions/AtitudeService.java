@@ -13,4 +13,6 @@ public interface AtitudeService {
     
     public Atitude findById(int id);
     
+    public List<Atitude> findAllByText(String[] array);
+    
 }
