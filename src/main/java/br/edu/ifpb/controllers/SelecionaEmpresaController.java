@@ -31,7 +31,12 @@ public class SelecionaEmpresaController implements Serializable {
         this.empresaSelecionada = true;
         this.empresa = empresa;
     }
-
+    
+    public String selecionarEmpresaToView(Empresa empresa) {
+        this.empresa = empresa;
+        return "view-empresa.xhtml";
+    }
+    
     public List<Vaga> findAllVagas() {
         return vagaService.findAllVagas(empresa);
     }

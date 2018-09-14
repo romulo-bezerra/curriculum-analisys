@@ -37,6 +37,7 @@ br/edu/ifpb/abstractions/LoginService.class
 br/edu/ifpb/services/IdiomaServiceImpl.class
 br/edu/ifpb/abstractions/CandidatoService.class
 br/edu/ifpb/services/CandidatoServiceImpl.class
+br/edu/ifpb/controllers/SelecionaVagaController.class
 br/edu/ifpb/services/LoginServiceImpl.class
 br/edu/ifpb/abstractions/InscricaoVagaService.class
 br/edu/ifpb/domain/Empresa_.class

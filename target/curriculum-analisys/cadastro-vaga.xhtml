@@ -122,13 +122,12 @@
                 </div>
 
                 <div class="right">
-                    <h:commandButton  value="Cadastrar" class="waves-effect waves-light btn-large" action="#{vagaController.addVaga(loginController.empresaLogada)}"/>
-                    <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadstrar</a>-->
+                    <a jsf:action="#{vagaController.addVaga(loginController.empresaLogada)}" class="waves-effect waves-light btn-large"><i class="material-icons left">add_to_photos</i>Cadastrar</a>
                 </div>
             </h:form>
         </div>
 
-        <!--<footer class="page-footer teal"></footer>-->
+        <footer class="page-footer teal"></footer>
 
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

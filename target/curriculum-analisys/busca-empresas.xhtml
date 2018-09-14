@@ -48,6 +48,8 @@
 
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado == false 
                                                    and selecionaEmpresaController.empresaSelecionada == false}">
+            <h5>Selecione uma empresa para a vaga</h5>
+
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAll()}" 
                             var="empresa" itemType="Empresa" id="empresas">
@@ -62,6 +64,9 @@
                             </div>
                             <div class="card-content">
                                 <span>CNPJ: #{empresa.cnpj}</span><br/>
+                                <h:form>
+                                    <a jsf:action="#{selecionaEmpresaController.selecionarEmpresaToView(empresa)}" class="waves-effect waves-light btn-small white-text"><i class="material-icons left">info</i>Ver empresa</a>
+                                </h:form>
                             </div>
                         </div>
                     </div>
@@ -73,13 +78,15 @@
         <!--Quando for pesquisada-->
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false 
                                                    and  selecionaEmpresaController.empresaSelecionada == false}">
+
+            <h5>Selecione uma empresa para a vaga</h5>
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAllByAttributes()}" 
                             var="empresa" itemType="Empresa" id="empresasBuscadas">
                     <div class="col s12 m4">
                         <div class="card">
                             <div class="card-image">
-                                <img src="images/b6.jpg"/>
+                                <h:graphicImage class="redondo" alt="Perfil" value="data:image/jpeg;base64,#{empresa.fotoBase64()}"/>
                                 <span class="card-title">#{empresa.nomeFantasia}</span>
                                 <h:form>
                                     <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{selecionaEmpresaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
@@ -95,10 +102,14 @@
         </div>
 
         <div class="row container" jsf:rendered="#{selecionaEmpresaController.empresaSelecionada != false}">
+
+            <h5>Selecione uma vaga para inscrição</h5>
+
             <div class="datalist-noborder">
                 <p:dataList value="#{selecionaEmpresaController.findAllVagas()}" 
                             var="vaga" itemType="vaga" id="vagas">
                     <div class="col s12 m4">
+
                         <div class="card">
                             <div class="card-image">
                                 <img src="images/b6.jpg"/>
@@ -116,12 +127,19 @@
                                 <label>Missão: #{vaga.missaoDaEmpresa}</label><br/>
                                 <label>Visão: #{vaga.visaoDaEmpresa}</label>
                             </div>
+                            <div class="card-action">
+                                <h:form>
+                                    <a jsf:action="#{selecionaVagaController.selecionarVagaToView(vaga)}">Ver vaga</a>
+                                </h:form>
+                            </div>
                         </div>
                     </div>
                 </p:dataList>
             </div>
         </div>
-
+<!--        <br/><br/>
+        <footer class="page-footer teal"></footer>-->
+        
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
