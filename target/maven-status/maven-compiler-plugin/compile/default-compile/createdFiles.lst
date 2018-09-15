@@ -4,6 +4,7 @@ br/edu/ifpb/domain/Habilidade_.class
 br/edu/ifpb/abstractions/HabilidadeService.class
 br/edu/ifpb/services/VagaServiceImpl.class
 br/edu/ifpb/initapplication/LoaderRestores.class
+br/edu/ifpb/controllers/VagasInscritasEmpresaController.class
 br/edu/ifpb/domain/Atitude.class
 br/edu/ifpb/controllers/BuscaEmpresaController.class
 br/edu/ifpb/services/InscricaoVagaServiceImpl.class

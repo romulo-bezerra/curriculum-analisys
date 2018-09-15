@@ -31,4 +31,6 @@ public interface VagaService {
     
     public List<Idioma> getIdioma(Vaga vaga);
     
+    public List<Vaga> findAllWithInscricao(Empresa empresa);
+    
 }

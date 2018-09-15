@@ -21,6 +21,7 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/restore/RestorerCSV.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/EmpresaService.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/enums/Origem.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/VagasInscritasEmpresaController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/HabilidadeService.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/services/EmpresaServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/InscricaoVagaController.java

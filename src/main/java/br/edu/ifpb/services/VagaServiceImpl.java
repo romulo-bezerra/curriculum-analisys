@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Stateless
 public class VagaServiceImpl implements VagaService {
@@ -107,6 +108,17 @@ public class VagaServiceImpl implements VagaService {
     //Concertar idomas (retirar o 'avançado') e verificar se existem iguais lstados
     public List<Idioma> getIdioma(Vaga vaga) {
         return vaga.getIdiomas();
+    }
+
+    @Override
+    public List<Vaga> findAllWithInscricao(Empresa empresa) {
+        List<Vaga> vagasComInscricoes = new ArrayList<>();
+        for (Vaga vaga : empresa.getVagas()) {
+            if (!vaga.getInscricoesVagas().isEmpty()) {
+                vagasComInscricoes.add(vaga);
+            }
+        }
+        return vagasComInscricoes;
     }
 
 }
