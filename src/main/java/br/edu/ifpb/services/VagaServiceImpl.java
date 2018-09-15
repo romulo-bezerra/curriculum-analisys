@@ -5,6 +5,7 @@ import br.edu.ifpb.domain.Atitude;
 import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.domain.Habilidade;
 import br.edu.ifpb.domain.Idioma;
+import br.edu.ifpb.domain.InscricaoVaga;
 import br.edu.ifpb.domain.Vaga;
 import br.edu.ifpb.enums.Origem;
 import java.util.ArrayList;
@@ -12,7 +13,6 @@ import java.util.Arrays;
 import org.apache.commons.lang.StringUtils;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,8 +23,6 @@ public class VagaServiceImpl implements VagaService {
 
     @PersistenceContext(unitName = "curriculum-analisys")
     EntityManager entityManager;
-
-    static Logger log = Logger.getLogger("Log Extracts Infos");
 
     @Override
 
@@ -42,9 +40,6 @@ public class VagaServiceImpl implements VagaService {
         List<Idioma> returnIdiomas = new ArrayList<>();
         String textTrim = text.replace(" ", "");
         String[] idiomas = textTrim.split(";");
-
-        //Temp
-        log.log(Level.INFO, "Resultado Idiomas = {0}", Arrays.toString(idiomas));
 
         for (String idioma : idiomas) {
             returnIdiomas.add(new Idioma(idioma, Origem.ORIGINARIO_DO_CANDIDATO));
@@ -119,6 +114,27 @@ public class VagaServiceImpl implements VagaService {
             }
         }
         return vagasComInscricoes;
+    }
+
+    @Override
+    public List<Vaga> findAllContains(int idCandidato) {
+        List<Vaga> vagasInscritas = new ArrayList<>();
+        
+        String sql = "SELECT v FROM Vaga v WHERE v.inscricoesVagas IS NOT EMPTY";
+        TypedQuery<Vaga> query = entityManager.createQuery(sql, Vaga.class);
+        
+        if(query.getResultList() != null){
+            for(Vaga vaga : query.getResultList()){
+                for(InscricaoVaga inscricaoVaga : vaga.getInscricoesVagas()){
+                    if(inscricaoVaga.getCandidato().getId() == idCandidato){
+                        vagasInscritas.add(vaga);
+                        break;
+                    }
+                }
+            }
+            return vagasInscritas;
+        }
+        return new ArrayList<>();
     }
 
 }

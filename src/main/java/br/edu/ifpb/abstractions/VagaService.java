@@ -1,6 +1,7 @@
 package br.edu.ifpb.abstractions;
 
 import br.edu.ifpb.domain.Atitude;
+import br.edu.ifpb.domain.Candidato;
 import br.edu.ifpb.domain.Empresa;
 import br.edu.ifpb.domain.Habilidade;
 import br.edu.ifpb.domain.Idioma;
@@ -32,5 +33,7 @@ public interface VagaService {
     public List<Idioma> getIdioma(Vaga vaga);
     
     public List<Vaga> findAllWithInscricao(Empresa empresa);
+    
+    public List<Vaga> findAllContains(int idCandidato);
     
 }

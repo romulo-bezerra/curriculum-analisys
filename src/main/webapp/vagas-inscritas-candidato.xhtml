@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Vagas Inscritas</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+        <style type="text/css">
+            .datalist-noborder .ui-widget-content {
+                border: none;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <h:form>
+                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
+                    </h:form>
+                </ul>
+            </div>
+        </nav><br/>
+
+        <div class="row container">
+            <div class="datalist-noborder">
+                <p:dataList value="#{vagasInscritasCandidatoController.findAllContains(loginController.candidatoLogado.id)}" 
+                            var="vaga" itemType="vaga" id="vagas">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/b6.jpg"/>
+                                <span class="card-title">#{vaga.titulo}</span>
+                                <h:form>
+                                    <a jsf:action="#{selecionaVagaController.selecionarVagaToView(vaga)}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                                </h:form>
+                            </div>
+                            <div class="card-content">
+                                <span>Descrição: #{vaga.descricao}</span><br/>
+                                <label>Salário: #{vaga.salario}</label><br/>
+                                <label>Horas diárias: #{vaga.horasDiarias}</label><br/>
+                                <label>Número vagas: #{vaga.numeroVagas}</label><br/>
+                                <label>Estado: #{vaga.estado.label}</label><br/>
+                                <label>Missão: #{vaga.missaoDaEmpresa}</label><br/>
+                                <label>Visão: #{vaga.visaoDaEmpresa}</label>
+                            </div>
+                        </div>
+                    </div>
+                </p:dataList>
+            </div>
+        </div>
+
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+    </h:body>
+</html>

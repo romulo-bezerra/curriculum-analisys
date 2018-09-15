@@ -36,6 +36,7 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/enums/TipoLogin.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/LoginController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/CandidatoService.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/VagasInscritasCandidatoController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/AtitudeService.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/CandidatoController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/initapplication/LoaderRestores.java

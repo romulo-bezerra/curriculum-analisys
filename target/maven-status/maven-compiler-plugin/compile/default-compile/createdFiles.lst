@@ -17,6 +17,7 @@ br/edu/ifpb/abstractions/AtitudeService.class
 br/edu/ifpb/enums/Origem.class
 br/edu/ifpb/controllers/InscricaoVagaController.class
 br/edu/ifpb/domain/InscricaoVaga.class
+br/edu/ifpb/controllers/VagasInscritasCandidatoController.class
 br/edu/ifpb/services/EmpresaServiceImpl.class
 br/edu/ifpb/abstractions/IdiomaService.class
 br/edu/ifpb/enums/Estado.class
