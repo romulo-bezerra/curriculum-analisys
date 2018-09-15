@@ -10,6 +10,7 @@
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/services/HabilidadeServiceImpl.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/InscricaoVaga.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/InscricaoVagaService.java
+/home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/SelecionaInscricaoVagaController.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/domain/Atitude.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/abstractions/LoginService.java
 /home/romulo/Área de Trabalho/curriculum-analisys/curriculum-analisys/src/main/java/br/edu/ifpb/controllers/SelecionaEmpresaController.java

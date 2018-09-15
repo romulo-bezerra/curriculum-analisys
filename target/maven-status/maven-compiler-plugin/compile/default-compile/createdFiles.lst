@@ -27,6 +27,7 @@ br/edu/ifpb/domain/embeddable/Endereco.class
 br/edu/ifpb/enums/Sexo.class
 br/edu/ifpb/services/HabilidadeServiceImpl.class
 br/edu/ifpb/enums/TipoEmpresa.class
+br/edu/ifpb/controllers/SelecionaInscricaoVagaController.class
 br/edu/ifpb/enums/TipoLogin.class
 br/edu/ifpb/domain/Habilidade.class
 br/edu/ifpb/restore/RestorerCSV.class

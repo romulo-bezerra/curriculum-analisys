@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Cadastro Vaga</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+        <style type="text/css">
+            .datalist-noborder .ui-widget-content {
+                border: none;
+            }
+        </style>
+    </h:head>
+    <h:body>
+
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <h:form>
+                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
+                    </h:form>
+                </ul>
+            </div>
+        </nav><br/>
+
+        <div class="row container">
+            <div class="col s12">
+                <h5>Detalhes da Inscrição</h5><hr></hr>
+            </div>
+            <div class="col s12">
+                <br/><h6>Detalhes do Candidato</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">face</i>
+                <label for="nomeCompleto"><b>Nome:</b></label><br/>
+                <h4><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.nome} #{selecionaInscricaoVagaController.inscricaoVaga.candidato.sobreNome}"/></h4>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mail</i>
+                <label for="email"><b>Email:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.email}"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <label for="telefone"><b>Telefone:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.telefone}"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">language</i>
+                <label for="nacilinalidade"><b>Nacionalidade:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.nacionalidade}"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">date_range</i>
+                <label for="idade"><b>Idade:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.idade} anos"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">wc</i>
+                <label for="sexo"><b>Sexo:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.sexo.label}"/></h5>
+            </div>
+            
+             <div class="input-field col s6">
+                <i class="material-icons prefix">center_focus_weak</i>
+                <label for="sexo"><b>Objetivo:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.objetivo}"/></h5>
+            </div>
+
+            <div class="col s12">
+                <br/><h6>Endereco do candidato</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">streetview</i>
+                <label for="tipoNegocio"><b>Rua:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.endereco.rua}"/></h5>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">markunread_mailbox</i>
+                <label for="numero"><b>Número:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.endereco.numero}"/></h5>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">streetview</i>
+                <label for="numero"><b>Bairro:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.endereco.bairro}"/></h5>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mail</i>
+                <label for="numero"><b>CEP:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.endereco.cep}"/></h5>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">location_city</i>
+                <label for="numero"><b>Cidade:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.endereco.cidade}"/></h5>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">description</i>
+                <label for="numero"><b>Complemento:</b></label><br/>
+                <h5><h:outputText value="#{selecionaInscricaoVagaController.inscricaoVaga.candidato.endereco.complemento}"/></h5>
+            </div>
+
+            <div class="col s12">
+                <br/><h6>Atitudes marcadas pelo candidato</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+
+            <div class="datalist-noborder">
+                <p:dataList value="#{selecionaInscricaoVagaController.inscricaoVaga.atitudes}" 
+                            var="atitude" itemType="atitude" id="atitudes">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">star</i>
+                        <label for="atitude"><b>Atitude:</b></label><br/>
+                        <h5><h:outputText value="#{atitude.atitude}"/></h5>
+                    </div>
+                </p:dataList>
+            </div>
+
+            <div class="col s12">
+                <br/><h6>Habilidades marcadas pelo candidato</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+
+            <div class="datalist-noborder">
+                <p:dataList value="#{selecionaInscricaoVagaController.inscricaoVaga.habilidades}" 
+                            var="habilidade" itemType="habilidade" id="habilidades">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">assignment</i>
+                        <label for="habilidade"><b>Habilidade:</b></label><br/>
+                        <h5><h:outputText value="#{habilidade.habilidade}"/></h5>
+                    </div>
+                </p:dataList>
+            </div>
+
+            <div class="col s12">
+                <br/><h6>Idiomas marcadas pelo candidato</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+
+
+            <div class="datalist-noborder">
+                <p:dataList value="#{selecionaInscricaoVagaController.inscricaoVaga.idiomas}" 
+                            var="idioma" itemType="idioma" id="idiomas">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">import_contacts</i>
+                        <label for="idioma"><b>Idioma:</b></label><br/>
+                        <h5><h:outputText value="#{idioma.idioma}"/></h5>
+                    </div>
+                </p:dataList>
+            </div>
+
+            <h:form>
+                <div class="right">
+                    <a class="waves-effect waves-light btn-large" href="javascript:history.back()"><i class="material-icons left">arrow_back</i>Voltar</a>
+                </div>
+            </h:form>
+        </div>
+        <br/>
+        <footer class="page-footer teal"></footer>
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+    </h:body>
+</html>

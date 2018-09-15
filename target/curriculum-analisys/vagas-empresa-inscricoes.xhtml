@@ -77,16 +77,11 @@
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{iv.candidato.nome}</span>
                                 <h:form>
-                                    <a jsf:action="#{selecionaVagaController.selecionarVagaToView(vaga)}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
+                                    <a jsf:action="#{selecionaInscricaoVagaController.selecionarInscricaoVagaToView(iv)}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">
                                 <span>Nacionalidade: #{iv.candidato.nacionalidade}</span><br/>
-                            </div>
-                            <div class="card-action">
-                                <h:form>
-                                    <a jsf:action="#{selecionaVagaController.selecionarVagaToView(vaga)}">Ver Inscrições</a>
-                                </h:form>
                             </div>
                         </div>
                     </div>

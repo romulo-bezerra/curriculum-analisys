@@ -28,9 +28,8 @@
 
         <div class="row container">
             <div class="col s12">
-                <h5>Cadastro de Vaga</h5><hr></hr>
+                <h5>Detalhes da Vaga</h5><hr></hr>
             </div>
-            <h:form class="col s12">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">title</i>
                     <label for="nome_fantasia"><b>Título da Vaga:</b></label><br/>
@@ -61,7 +60,7 @@
                     <label for="descricao"><b>Data final inscrição:</b></label><br/>
                     <h4><h:outputText value="#{selecionaVagaController.vaga.dataMaxInscricao}"/></h4>
                 </div>
-
+            <h:form>
                 <div class="right">
                     <a class="waves-effect waves-light btn-large" href="javascript:history.back()"><i class="material-icons left">arrow_back</i>Voltar</a>
                 </div>
