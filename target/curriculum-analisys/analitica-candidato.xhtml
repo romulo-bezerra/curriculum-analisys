@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Análise do Candidato</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!--<link href="css/materialize.min.css" type="text/css" rel="stylesheet"/>-->
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+
+        <!--        
+        <nav>
+            <div class="nav-wrapper teal">
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="white-text" href="index.xhtml"><i class="material-icons right white-text">home</i>Início</a></li>
+                </ul>
+            </div>
+        </nav>
+        -->
+
+        <p:chart type="bar" model="#{selecionaVagaController.barra}" style="height:300px"/>
+
+        <div class="left">
+            <label><h:messages class="red-text center"/></label>
+        </div>
+
+        <!--<footer class="page-footer teal"></footer>-->
+
+        <!--  Scripts-->
+        <!--<script src="js/jquery.min.js"></script>-->
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+    </h:body>
+</html>

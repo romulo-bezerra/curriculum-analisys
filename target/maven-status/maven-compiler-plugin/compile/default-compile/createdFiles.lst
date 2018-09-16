@@ -20,6 +20,7 @@ br/edu/ifpb/domain/InscricaoVaga.class
 br/edu/ifpb/controllers/VagasInscritasCandidatoController.class
 br/edu/ifpb/services/EmpresaServiceImpl.class
 br/edu/ifpb/abstractions/IdiomaService.class
+br/edu/ifpb/controllers/ChartBarViewController.class
 br/edu/ifpb/enums/Estado.class
 br/edu/ifpb/domain/embeddable/Endereco_.class
 br/edu/ifpb/domain/Candidato.class
