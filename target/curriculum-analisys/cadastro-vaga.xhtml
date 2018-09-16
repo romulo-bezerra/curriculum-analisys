@@ -34,21 +34,20 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">title</i>
-                        <h:inputText id="titulo" class="validate" value="#{vagaController.vaga.titulo}" required="true"/>
+                        <h:inputText id="titulo" class="validate" value="#{vagaController.vaga.titulo}"/>
                         <!--<input id="titulo" type="text" class="validate">-->
                         <label for="titulo">Título da vaga</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">description</i>
-                        <h:inputTextarea id="descricaoVaga" class="materialize-textarea validate" value="#{vagaController.vaga.descricao}" required="true"/>
-                        <!--<textarea id="textarea2" class="materialize-textarea" ></textarea>-->
+                        <h:inputTextarea id="descricaoVaga" class="materialize-textarea validate" value="#{vagaController.vaga.descricao}"/>
                         <label for="descricaoVaga">Descrição da vaga</label>
                     </div>
 
                     <div class="input-field col s3">
                         <i class="material-icons prefix">timer</i>
                         <h:selectOneMenu id="tipoEmpresa" value="#{vagaController.vaga.horasDiarias}" 
-                                         required="true" requiredMessage="Escolha uma opção para as horas diárias">
+                                         requiredMessage="Escolha uma opção para as horas diárias">
                             <f:selectItem itemLabel="Escolha uma opção" itemValue="" noSelectionOption="true"/>
                             <f:selectItem itemLabel="1 - 3" itemValue="1 - 3" noSelectionOption="false"/>
                             <f:selectItem itemLabel="3 - 6" itemValue="3 - 6" noSelectionOption="false"/>
@@ -62,63 +61,111 @@
 
                     <div class="input-field col s3">
                         <i class="material-icons prefix">content_paste</i>
-                        <h:inputText id="numeroVagas" class="validate" value="#{vagaController.vaga.numeroVagas}" required="true"/>
-                        <!--<input id="numero_vagas" type="text" class="validate"/>-->
+                        <h:inputText id="numeroVagas" class="validate" value="#{vagaController.vaga.numeroVagas}"/>
                         <label for="numero_vagas">Número de vagas</label>
                     </div>
                     <div class="input-field col s3">
                         <i class="material-icons prefix">monetization_on</i>
-                        <h:inputText id="salario" class="validate" value="#{vagaController.vaga.salario}" required="true"/>
-                        <!--<input id="empresario" type="text" class="validate"/>-->
+                        <h:inputText id="salario" class="validate" value="#{vagaController.vaga.salario}"/>
                         <label for="salario">Salário</label>
                     </div>
                     <div class="input-field col s3">
                         <i class="material-icons prefix">date_range</i>
                         <h:inputText id="prazoInscricao" class="validate" value="#{vagaController.vaga.dataMaxInscricao}" 
-                                     required="true"/>
-                        <!--<input id="telefone" type="tel" class="validate"/>-->
+                                     />
                         <label for="prazoInscricao">Prazo de Inscrição</label>
                     </div>
 
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">assignment</i>
-                        <h:inputTextarea id="habilidades" class="validate materialize-textarea" value="#{vagaController.habilidadesLongString}" required="true"/>
-                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
-                        <label for="habilidades">Habilidades</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Digite as habilidades requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: Coordenar a manutenção dos equipamentos de informática;</span>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">import_contacts</i>
-                        <h:inputTextarea id="idiomas" class="validate materialize-textarea" value="#{vagaController.idiomasLongString}" required="true"/>
-                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
-                        <label for="idiomas">Idiomas</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Digite as habilidades linguísticas requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: português; inglês;</span>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">grade</i>
-                        <h:inputTextarea id="atitudes" class="validate materialize-textarea" value="#{vagaController.atitudesLongString}" required="true"/>
-                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+
+
+                    <div class="input-field col s10">
+                        <br/><i class="material-icons prefix">grade</i>
+                        <h:inputText id="atitudes" class="validate" value="#{vagaController.atitude}" />
                         <label for="atitudes">Atitudes</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Digite as atitudes requeridas pela vaga separadas por ";" (ponto e vírgula). Ex: respeito; honestidade;</span>
+                        <span class="helper-text" data-error="wrong" data-success="correct">Digite as atitudes requeridas pela vaga dinâmicamente, uma de cada vez.</span>
+                        <span class="helper-text green-text">#{vagaController.statusDeInsercaoAtitude}</span>
                     </div>
+
+                    <div class="col">
+                        <br/><br/><h:commandLink title="Remove a última atitude adicionada" class="btn-floating btn-medium waves-effect waves-light red"
+                                       action="#{vagaController.removeLatestAtitude()}">
+                            <i class="material-icons">remove</i>
+                        </h:commandLink>
+                    </div>
+                    <div class="col">
+                        <br/><br/><h:commandLink title="Adiciona uma atitude" class="btn-floating btn-medium waves-effect waves-light green"
+                                       action="#{vagaController.addAtitude()}">
+                            <i class="material-icons">add</i>
+                        </h:commandLink>
+                    </div>
+
+                    <div class="input-field col s10">
+                        <i class="material-icons prefix">assignment</i>
+                        <h:inputText id="habilidades" class="validate" value="#{vagaController.habilidade}" />
+                        <label for="habilidades">Habilidades</label>
+                        <span class="helper-text" data-error="wrong" data-success="correct">Adicione as habilidades requeridas pela vaga dinâmicamente, uma de cada vez</span>
+                        <span class="helper-text green-text">#{vagaController.statusDeInsercaoHabilidade}</span>
+                    </div>
+
+                    <div class="col">
+                        <br/><h:commandLink title="Remove a última habilidade adicionada" class="btn-floating btn-medium waves-effect waves-light red"
+                                       action="#{vagaController.removeLatestHabilidade()}">
+                            <i class="material-icons">remove</i>
+                        </h:commandLink>
+                    </div>
+                    <div class="col">
+                        <br/><h:commandLink title="Adiciona uma habilidade" class="btn-floating btn-medium waves-effect waves-light green"
+                                       action="#{vagaController.addHabilidade()}">
+                            <i class="material-icons">add</i>
+                        </h:commandLink>
+                    </div>
+
+                    <div class="input-field col s10">
+                        <i class="material-icons prefix">import_contacts</i>
+                        <h:inputText id="idiomas" class="validate" value="#{vagaController.idioma}" />
+                        <label for="idiomas">Idiomas</label>
+                        <span class="helper-text" data-error="wrong" data-success="correct">Digite as habilidades linguísticas requeridas pela vaga pela vaga dinâmicamente, uma de cada vez</span>
+                        <span class="helper-text green-text">#{vagaController.statusDeInsercaoIdioma}</span>
+                    </div>
+
+
+                    <div class="col">
+                        <br/><h:commandLink title="Remove o último idioma adicionado" class="btn-floating btn-medium waves-effect waves-light red"
+                                       action="#{vagaController.removeLatestIdioma()}">
+                            <i class="material-icons">remove</i>
+                        </h:commandLink>
+                    </div>
+                    <div class="col">
+                        <br/><h:commandLink title="Adiciona um idioma" class="btn-floating btn-medium waves-effect waves-light green"
+                                       action="#{vagaController.addIdioma()}">
+                            <i class="material-icons">add</i>
+                        </h:commandLink>
+                    </div>
+
                     <div class="input-field col s12">
                         <i class="material-icons prefix">center_focus_strong</i>
-                        <h:inputTextarea id="missao" class="validate materialize-textarea" value="#{vagaController.vaga.missaoDaEmpresa}" required="true"/>
-                        <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
+                        <h:inputTextarea id="missao" class="validate materialize-textarea" value="#{vagaController.vaga.missaoDaEmpresa}"/>
                         <label for="missao">Missão</label>
                         <span class="helper-text" data-error="wrong" data-success="right">Digite a missão da empresa</span>
                     </div>
+
                     <div class="input-field col s12">
                         <i class="material-icons prefix">visibility</i>
-                        <h:inputTextarea id="visao" class="validate materialize-textarea" value="#{vagaController.vaga.visaoDaEmpresa}" required="true"/>
+                        <h:inputTextarea id="visao" class="validate materialize-textarea" value="#{vagaController.vaga.visaoDaEmpresa}"/>
                         <!--<textarea id="textarea2" class="materialize-textarea" data-length="500"></textarea>-->
                         <label for="visao">Visão</label>
                         <span class="helper-text" data-error="wrong" data-success="right">Digite a visão da empresa</span>
                     </div>
                 </div>
 
-                <div class="left">
-                    <label><h:messages class="red-text center"/></label>
+                <div class="left" jsf:rendered="#{vagaController.atitudeAdded == true}" >
+                    <label><h:messages class="red-text center" /></label>
+                </div>
+                <div class="left" jsf:rendered="#{vagaController.habilidadeAdded == true}" >
+                    <label><h:messages class="red-text center" /></label>
+                </div>
+                <div class="left" jsf:rendered="#{vagaController.idiomaAdded == true}" >
+                    <label><h:messages class="red-text center" /></label>
                 </div>
 
                 <div class="right">

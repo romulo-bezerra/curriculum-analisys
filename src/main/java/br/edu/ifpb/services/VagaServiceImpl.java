@@ -9,10 +9,8 @@ import br.edu.ifpb.domain.InscricaoVaga;
 import br.edu.ifpb.domain.Vaga;
 import br.edu.ifpb.enums.Origem;
 import java.util.ArrayList;
-import java.util.Arrays;
 import org.apache.commons.lang.StringUtils;
 import java.util.List;
-import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -76,12 +74,15 @@ public class VagaServiceImpl implements VagaService {
 
     @Override
     public boolean containInvalidCharacter(String text) {
-        char[] invalidCharacters = {'!', '@', '#', '$', '%', '¨', '&', '*',
-            '(', ')', '-', '_', '=', '+', '\\', '|', ',', '.', ':', '/',
-            '?', '°', '§', '¬', '¢', '£', '³', '²', '¹', '´', '`', '[',
-            ']', '{', '}', 'ª', 'º', '^', '~', '"'};
-        return (StringUtils.containsAny(text, invalidCharacters)
-                || StringUtils.isBlank(text) || StringUtils.isEmpty(text));
+        char[] invalidCharacters = {'@', '#', '$', '%', '¨', '&', '*',
+            '_', '=', '\\', '|', '/', '?', '§', '¬', '¢', '£', '³', 
+            '²', '¹', '´', '`', '[', ']', '{', '}', 'ª', 'º'};
+        return (StringUtils.containsAny(text, invalidCharacters));
+    }
+    
+    @Override
+    public boolean isEmpty(String text){
+        return (StringUtils.isBlank(text) || StringUtils.isEmpty(text));
     }
 
     @Override

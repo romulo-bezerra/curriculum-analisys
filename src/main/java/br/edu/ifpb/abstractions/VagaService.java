@@ -22,6 +22,8 @@ public interface VagaService {
     
     public boolean containInvalidCharacter(String text);
     
+    public boolean isEmpty(String text);
+    
     public List<Vaga> findAllVagas(Empresa empresa);
     
     public void update(Vaga novoEstado);

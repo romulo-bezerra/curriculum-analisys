@@ -48,6 +48,10 @@ public class VagasInscritasEmpresaController implements Serializable {
         this.vaga = vaga;
     }
     
+    public void voltarAnteSelecao(){
+        vagaSelecionada = false;
+    }
+    
     public List<InscricaoVaga> findAllInscricoesVaga(){
         return inscricaoVagaService.findAll(vaga);
     }
