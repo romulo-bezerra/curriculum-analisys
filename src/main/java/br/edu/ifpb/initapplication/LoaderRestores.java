@@ -10,14 +10,14 @@ import javax.inject.Inject;
 @Startup
 public class LoaderRestores {
 
-//    @Inject
-//    private RestorerCSV restoreByCSV;
-//
-//    @PostConstruct
-//    public void initRestores() {
-//        restoreByCSV.restoreIdiomasCSV();
-//        restoreByCSV.restoreHabilidadesCSV();
-//        restoreByCSV.restoreAtitudesCSV();
-//    }
+    @Inject
+    private RestorerCSV restoreByCSV;
+
+    @PostConstruct
+    public void initRestores() {
+        restoreByCSV.restoreIdiomasCSV();
+        restoreByCSV.restoreHabilidadesCSV();
+        restoreByCSV.restoreAtitudesCSV();
+    }
 
 }

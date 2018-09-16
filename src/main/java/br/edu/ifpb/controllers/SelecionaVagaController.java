@@ -1,6 +1,8 @@
 package br.edu.ifpb.controllers;
 
+import br.edu.ifpb.domain.Atitude;
 import br.edu.ifpb.domain.Habilidade;
+import br.edu.ifpb.domain.Idioma;
 import br.edu.ifpb.domain.InscricaoVaga;
 import br.edu.ifpb.domain.Vaga;
 import java.io.Serializable;
@@ -56,8 +58,8 @@ public class SelecionaVagaController implements Serializable {
         serie.setLabel("Valores");
 
         serie.set("Habilidades", getPercentualCorrespondenciaHabilidades());
-        serie.set("Atitudes", 50);
-        serie.set("Idiomas", 90);
+        serie.set("Atitudes", getPercentualCorrespondenciaAtitudes());
+        serie.set("Idiomas", getPercentualCorrespondenciaIdiomas());
 
         barra.addSeries(serie);
 
@@ -79,12 +81,9 @@ public class SelecionaVagaController implements Serializable {
         mensagemDeErro.setSeverity(FacesMessage.SEVERITY_ERROR);
         FacesContext.getCurrentInstance().addMessage(titlePag, mensagemDeErro);
     }
-    
+
     public int getPercentualCorrespondenciaHabilidades() {
-        
-        mensagemErro("Análise do Candidato", "Vaga: " + vaga.toString());
-        mensagemErro("Análise do Candidato", "InscriçãoVaga: " + inscricaoVaga.toString());
-        
+
         int qntHabilidadesVaga = vaga.getHabilidades().size();
 
         int qntCorrespondencias = 0;
@@ -101,6 +100,46 @@ public class SelecionaVagaController implements Serializable {
             return 0;
         }
         return (qntCorrespondencias * 100) / qntHabilidadesVaga;
+    }
+
+    public int getPercentualCorrespondenciaAtitudes() {
+
+        int qntAtitudesVaga = vaga.getAtitudes().size();
+
+        int qntCorrespondencias = 0;
+
+        for (Atitude av : vaga.getAtitudes()) {
+            for (Atitude ai : inscricaoVaga.getAtitudes()) {
+                if (av.getAtitude().equalsIgnoreCase(ai.getAtitude())) {
+                    qntCorrespondencias++;
+                    break;
+                }
+            }
+        }
+        if (qntCorrespondencias == 0 || qntAtitudesVaga == 0) {
+            return 0;
+        }
+        return (qntCorrespondencias * 100) / qntAtitudesVaga;
+    }
+
+    public int getPercentualCorrespondenciaIdiomas() {
+
+        int qntIdiomasVaga = vaga.getIdiomas().size();
+
+        int qntCorrespondencias = 0;
+
+        for (Idioma iv : vaga.getIdiomas()) {
+            for (Idioma ii : inscricaoVaga.getIdiomas()) {
+                if (iv.getIdioma().equalsIgnoreCase(ii.getIdioma())) {
+                    qntCorrespondencias++;
+                    break;
+                }
+            }
+        }
+        if (qntCorrespondencias == 0 || qntIdiomasVaga == 0) {
+            return 0;
+        }
+        return (qntCorrespondencias * 100) / qntIdiomasVaga;
     }
 
 }
