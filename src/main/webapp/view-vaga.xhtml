@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -12,62 +13,123 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
         <link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+        <style type="text/css">
+            .datalist-noborder .ui-widget-content {
+                border: none;
+            }
+        </style>
+
     </h:head>
     <h:body>
 
         <nav>
             <div class="nav-wrapper teal">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a class="white-text" href="javascript:history.back()"><i class="material-icons left white-text">navigate_before</i>Voltar</a></li>
+                </ul>
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" href="home-empresa.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
                         <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
             </div>
         </nav><br/>
 
-        <div class="row container">
+        <div class="container row">
             <div class="col s12">
-                <h5>Detalhes da Vaga</h5><hr></hr>
+                <h5>Detalhes da Vaga</h5><hr size="1" style="border:1px dashed green;"></hr>
             </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">title</i>
-                    <label for="nome_fantasia"><b>Título da Vaga:</b></label><br/>
-                    <h4><h:outputText value="#{selecionaVagaController.vaga.titulo}"/></h4>
-                </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">description</i>
-                    <label for="descricao"><b>Descrição:</b></label><br/>
-                    <h5><h:outputText value="#{selecionaVagaController.vaga.descricao}"/></h5>
-                </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">timer</i>
-                    <label for="descricao"><b>Carga horária:</b></label><br/>
-                    <h4><h:outputText value="#{selecionaVagaController.vaga.horasDiarias}"/></h4>
-                </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">content_paste</i>
-                    <label for="descricao"><b>Número de vagas:</b></label><br/>
-                    <h4><h:outputText value="#{selecionaVagaController.vaga.numeroVagas}"/></h4>
-                </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">monetization_on</i>
-                    <label for="descricao"><b>Salário:</b></label><br/>
-                    <h4><h:outputText value="#{selecionaVagaController.vaga.salario}"/></h4>
-                </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">date_range</i>
-                    <label for="descricao"><b>Data final inscrição:</b></label><br/>
-                    <h4><h:outputText value="#{selecionaVagaController.vaga.dataMaxInscricao}"/></h4>
-                </div>
-            <h:form>
-                <div class="right">
-                    <a class="waves-effect waves-light btn-large" href="javascript:history.back()"><i class="material-icons left">arrow_back</i>Voltar</a>
-                </div>
-            </h:form>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">title</i>
+                <label for="nome_fantasia"><b>Título da Vaga:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.titulo}"/></h5>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">description</i>
+                <label for="descricao"><b>Descrição:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.descricao}"/></h5><br/>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">timer</i>
+                <label for="descricao"><b>Carga horária:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.horasDiarias} horas"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">content_paste</i>
+                <label for="descricao"><b>Número de vagas:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.numeroVagas} vagas"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">monetization_on</i>
+                <label for="descricao"><b>Salário:</b></label><br/>
+                <h5><h:outputText value="R$ #{selecionaVagaController.vaga.salario}"/></h5>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">date_range</i>
+                <label for="descricao"><b>Data final inscrição:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.dataMaxInscricao}"/></h5>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">center_focus_weak</i>
+                <label for="missao"><b>Missão:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.missaoDaEmpresa}"/></h5>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">remove_red_eye</i>
+                <label for="visao"><b>Visão:</b></label><br/>
+                <h5><h:outputText value="#{selecionaVagaController.vaga.visaoDaEmpresa}"/></h5>
+            </div>
+            
+            <div class="col s12">
+                <br/><h6>Atitudes</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+            <div class="datalist-noborder">
+                <p:dataList value="#{selecionaVagaController.vaga.atitudes}" 
+                            var="atitude" itemType="atitude" id="atitudes">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">star</i>
+                        <label for="atitude"><b>Atitude:</b></label><br/>
+                        <h5><h:outputText value="#{atitude.atitude}"/></h5>
+                    </div>
+                </p:dataList>
+            </div>
+            
+            <div class="col s12">
+                <br/><h6>Habilidades</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+            <div class="datalist-noborder">
+                <p:dataList value="#{selecionaVagaController.vaga.habilidades}" 
+                            var="habilidade" itemType="habilidade" id="habilidade">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">assignment</i>
+                        <label for="atitude"><b>Habilidade:</b></label><br/>
+                        <h5><h:outputText value="#{habilidade.habilidade}"/></h5>
+                    </div>
+                </p:dataList>
+            </div>
+
+            <div class="col s12">
+                <br/><h6>Idiomas</h6><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+            <div class="datalist-noborder">
+                <p:dataList value="#{selecionaVagaController.vaga.idiomas}" 
+                            var="idioma" itemType="idioma" id="idioma">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">import_contacts</i>
+                        <label for="idioma"><b>Idioma:</b></label><br/>
+                        <h5><h:outputText value="#{idioma.idioma}"/></h5>
+                    </div>
+                </p:dataList>
+            </div>
+
+
+
+
+
+
         </div>
-        <br/>
-        <footer class="page-footer teal"></footer>
 
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

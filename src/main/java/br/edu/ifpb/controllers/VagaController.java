@@ -61,14 +61,14 @@ public class VagaController implements Serializable {
         vaga.setAtitudes(atitudesVaga);
         vaga.setEstado(Estado.ABERTA);
 
-        empresa.addVaga(vaga);
-        empresaService.update(empresa);
-
-        vaga = new Vaga();
-
-        //Temp
-        mensagemErro("Cadastro Vaga", "VAGA CADASTRADA!");
-        return "vagas-empresa.xhtml";
+        if (!vagaService.isRegistered(vaga.getTitulo())) {
+            empresa.addVaga(vaga);
+            empresaService.update(empresa);
+            return "vagas-empresa.xhtml";
+        } else {
+            mensagemErro("Cadastro Vaga", "Já existe uma vaga com este título");
+            return null;
+        }
     }
 
     public void mensagemErro(String titlePag, String content) {

@@ -38,4 +38,6 @@ public interface VagaService {
     
     public List<Vaga> findAllContains(int idCandidato);
     
+    public boolean isRegistered(String titulo);
+    
 }

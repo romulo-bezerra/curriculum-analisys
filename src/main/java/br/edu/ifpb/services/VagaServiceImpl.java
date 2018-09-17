@@ -11,6 +11,7 @@ import br.edu.ifpb.enums.Origem;
 import java.util.ArrayList;
 import org.apache.commons.lang.StringUtils;
 import java.util.List;
+import java.util.Optional;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -75,13 +76,13 @@ public class VagaServiceImpl implements VagaService {
     @Override
     public boolean containInvalidCharacter(String text) {
         char[] invalidCharacters = {'@', '#', '$', '%', '¨', '&', '*',
-            '_', '=', '\\', '|', '/', '?', '§', '¬', '¢', '£', '³', 
+            '_', '=', '\\', '|', '/', '?', '§', '¬', '¢', '£', '³',
             '²', '¹', '´', '`', '[', ']', '{', '}', 'ª', 'º'};
         return (StringUtils.containsAny(text, invalidCharacters));
     }
-    
+
     @Override
-    public boolean isEmpty(String text){
+    public boolean isEmpty(String text) {
         return (StringUtils.isBlank(text) || StringUtils.isEmpty(text));
     }
 
@@ -120,14 +121,14 @@ public class VagaServiceImpl implements VagaService {
     @Override
     public List<Vaga> findAllContains(int idCandidato) {
         List<Vaga> vagasInscritas = new ArrayList<>();
-        
+
         String sql = "SELECT v FROM Vaga v WHERE v.inscricoesVagas IS NOT EMPTY";
         TypedQuery<Vaga> query = entityManager.createQuery(sql, Vaga.class);
-        
-        if(query.getResultList() != null){
-            for(Vaga vaga : query.getResultList()){
-                for(InscricaoVaga inscricaoVaga : vaga.getInscricoesVagas()){
-                    if(inscricaoVaga.getCandidato().getId() == idCandidato){
+
+        if (query.getResultList() != null) {
+            for (Vaga vaga : query.getResultList()) {
+                for (InscricaoVaga inscricaoVaga : vaga.getInscricoesVagas()) {
+                    if (inscricaoVaga.getCandidato().getId() == idCandidato) {
                         vagasInscritas.add(vaga);
                         break;
                     }
@@ -136,6 +137,15 @@ public class VagaServiceImpl implements VagaService {
             return vagasInscritas;
         }
         return new ArrayList<>();
+    }
+    
+    @Override
+    public boolean isRegistered(String titulo) {
+        String querySql = "SELECT v FROM Vaga v WHERE v.titulo = :titulo ";
+        TypedQuery<Vaga> query = entityManager.createQuery(querySql, Vaga.class);
+        query.setParameter("titulo", titulo);
+        Optional<Vaga> vaga = query.getResultList().stream().findFirst();
+        return vaga.isPresent();
     }
 
 }
