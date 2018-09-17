@@ -18,48 +18,42 @@
             <div class="nav-wrapper teal">
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
                         <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
             </div>
         </nav><br/>
 
-        <center>
-            <div class="row">
-                <div class="col m4 l4 push-l4 push-m4">
-                    <h:graphicImage class="redondo" alt="Perfil" value="data:image/jpeg;base64,#{loginController.empresaLogada.fotoBase64()}"/>
-                    <!--            <img src="images/b6.jpg" alt="" class="redondo"/>-->
-                </div>
+        <div class="row container">
+            <div class="col s12">
+                <h5>Perfil da Empresa</h5><hr size="1" style="border:1px dashed green;"></hr>
             </div>
-        </center>
-
-        <div class="row">
-            <div class="col s4 offset-s4">
-                <center>
-                    <p>
-                        <h4><b><a href="#">#{loginController.empresaLogada.nomeFantasia}</a></b><br/></h4>
-                        <h6>CNPJ: #{loginController.empresaLogada.cnpj}</h6>
-                        <h6>#{loginController.empresaLogada.tipoEmpresa.label}, #{loginController.empresaLogada.razaoSocial}</h6>
-                        <h:outputLabel>#{loginController.empresaLogada.empresario}, </h:outputLabel>
-                        <h:outputLabel>#{loginController.empresaLogada.telefone}, </h:outputLabel>
-                        <h:outputLabel>#{loginController.empresaLogada.email}</h:outputLabel>
-                    </p>
-                </center>
+            <div class="input-field col s6 center">
+                <i class="material-icons prefix"></i>
+                <label for="foto"><b>Foto Perfil:</b></label>
+                <h:graphicImage class="redondo" alt="Perfil" value="data:image/jpeg;base64,#{loginController.empresaLogada.fotoBase64()}"/>
+            </div>
+            <div class="input-field col s6 center">
+                <i class="material-icons prefix"></i>
+                <label for="info"><b>Informações:</b></label>
+            </div>
+            <div class="col s6 center">
+                <h2><b><a>#{loginController.empresaLogada.nomeFantasia}</a></b></h2>
+                <h5>CNPJ: #{loginController.empresaLogada.cnpj}</h5>
+                <h5>#{loginController.empresaLogada.tipoEmpresa.label}, #{loginController.empresaLogada.razaoSocial}</h5>
+                <h6>Empresário: #{loginController.empresaLogada.empresario} </h6>
+                <h6>Telefone: #{loginController.empresaLogada.telefone} </h6>
+                <h6>Email: #{loginController.empresaLogada.email}</h6>
             </div>
         </div>
 
-        <center>
-            <div class="row container">
-                <div class="col s12">
-                    <a href="vagas-empresa.xhtml" class="waves-effect waves-light btn-large" style="width: 30%"><i class="material-icons left">turned_in_not</i>Vagas Cadastradas</a>
-                    <a href="vagas-empresa-inscricoes.xhtml" class="waves-effect waves-light btn-large" style="width: 30%"><i class="material-icons left">info</i>Inscrições em Vagas</a>
-                    <a href="faces/cadastro-vaga.xhtml" class="waves-effect waves-light btn-large" style="width: 30%"><i class="material-icons left">add_box</i>Cadastrar vaga</a>
-                </div>
+        <div class="row container center">
+            <div class="col s12">
+                <br/><a href="vagas-empresa.xhtml" class="waves-effect waves-light btn-large" style="width: 30%"><i class="material-icons left">turned_in_not</i>Vagas Cadastradas</a>
+                <a href="vagas-empresa-inscricoes.xhtml" class="waves-effect waves-light btn-large" style="width: 30%"><i class="material-icons left">info</i>Inscrições em Vagas</a>
+                <a href="faces/cadastro-vaga.xhtml" class="waves-effect waves-light btn-large" style="width: 30%"><i class="material-icons left">add_box</i>Cadastrar vaga</a>
             </div>
-        </center><br/>
-
-        <!--<footer class="page-footer teal"></footer>-->
+        </div>
 
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
