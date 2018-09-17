@@ -18,7 +18,6 @@
             <div class="nav-wrapper teal">
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
                         <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
@@ -34,6 +33,7 @@
                         <h6>Nacionalidade: #{loginController.candidatoLogado.nacionalidade}</h6>
                         <h6>Email: #{loginController.candidatoLogado.email}</h6>
                         <h6>Telefone: #{loginController.candidatoLogado.telefone}</h6>
+                        <h6>Sexo: #{loginController.candidatoLogado.sexo.label}</h6>
                         
                     </p>
                 </center>

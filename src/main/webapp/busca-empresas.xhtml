@@ -24,54 +24,74 @@
 
         <nav>
             <div class="nav-wrapper teal">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <h:form>
+                        <li><a class="white-text" jsf:action="#{selecionaEmpresaController.voltaAnteSelecao()}"><i class="material-icons left white-text">navigate_before</i>Voltar</a></li>
+                    </h:form>
+                </ul>
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" href="home-candidato.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
                         <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
             </div>
         </nav><br/>
 
-        <h:form>
-            <div class="row">
-                <div class="input-field col s5 offset-l3">
-                    <i class="material-icons prefix">business</i>
-                    <h:inputText id="buscaEmpresa" value="#{buscaEmpresaController.infoRelated}" class="validate"/>
-                    <label for="busca">Busque pelo Nome Fantasia, CNPJ, Empresario ou Razão Social</label>
-                </div>
-                <div class="col s3">
-                    <button class="btn-floating" jsf:action="#{buscaEmpresaController.findAllByAttributes()}" style="margin-top: 6%"><i class="material-icons prefix">search</i></button>
-                </div>
+
+        <div class="row container" jsf:rendered="#{!selecionaEmpresaController.empresaSelecionada}">
+            <div class="col s12">
+                <h5> -- Selecione uma empresa para a vaga</h5><hr size="1" style="border:1px dashed green;"></hr>
             </div>
-        </h:form>
+        </div>
+
+        <div jsf:rendered="#{!selecionaEmpresaController.empresaSelecionada}">
+
+            <h:form>
+                <div class="row container right">
+                    <div class="input-field col s5 push-s3">
+                        <i class="material-icons prefix">business</i>
+                        <h:inputText id="buscaEmpresa" value="#{buscaEmpresaController.infoRelated}" class="validate"/>
+                        <label for="busca">Busque uma empresa</label>
+                    </div>
+                    <div class="col s2 push-s3">
+                        <button class="btn-floating" jsf:action="#{buscaEmpresaController.findAllByAttributes()}" style="margin-top: 6%"><i class="material-icons prefix">search</i></button>
+                    </div>
+                </div>
+            </h:form>
+        </div>
 
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado == false 
                                                    and selecionaEmpresaController.empresaSelecionada == false}">
-            <h5>Selecione uma empresa para a vaga</h5>
-
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAll()}" 
-                            var="empresa" itemType="Empresa" id="empresas">
+                            var="empresa" itemType="empresa" id="empresas">
                     <div class="col s12 m4">
                         <div class="card">
                             <div class="card-image">
                                 <h:graphicImage alt="Perfil" value="data:image/jpeg;base64,#{empresa.fotoBase64()}"/>
                                 <span class="card-title">#{empresa.nomeFantasia}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{selecionaEmpresaController.selecionarEmpresa(empresa)}"><i class="material-icons">remove_red_eye</i></a>
+                                    <a jsf:action="#{selecionaEmpresaController.selecionarEmpresaToView(empresa)}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">
                                 <span>CNPJ: #{empresa.cnpj}</span><br/>
+                            </div>
+                            <div class="card-action">
                                 <h:form>
-                                    <a jsf:action="#{selecionaEmpresaController.selecionarEmpresaToView(empresa)}" class="waves-effect waves-light btn-small white-text"><i class="material-icons left">info</i>Ver empresa</a>
+                                    <a jsf:action="#{selecionaEmpresaController.selecionarEmpresa(empresa)}">Selecionar</a>
                                 </h:form>
                             </div>
                         </div>
                     </div>
                 </p:dataList>
             </div>
+
+
+
+
+
         </div>
 
 
@@ -79,7 +99,7 @@
         <div class="row container" jsf:rendered="#{buscaEmpresaController.pesquisado != false 
                                                    and  selecionaEmpresaController.empresaSelecionada == false}">
 
-            <h5>Selecione uma empresa para a vaga</h5>
+            <h5>Selecione uma empresa para a vaga</h5><hr size="1" style="border:1px dashed green;"></hr>
             <div class="datalist-noborder">
                 <p:dataList value="#{buscaEmpresaController.findAllByAttributes()}" 
                             var="empresa" itemType="Empresa" id="empresasBuscadas">
@@ -103,43 +123,43 @@
 
         <div class="row container" jsf:rendered="#{selecionaEmpresaController.empresaSelecionada != false}">
 
-            <h5>Selecione uma vaga para inscrição</h5>
+            <div jsf:rendered="#{selecionaEmpresaController.empresaSelecionada}">
+                <div class="col s12">
+                    <h5> -- Selecione uma vaga para inscrição</h5><hr size="1" style="border:1px dashed green;"></hr><br/>
+                </div>
+            </div>
+
 
             <div class="datalist-noborder">
                 <p:dataList value="#{selecionaEmpresaController.findAllVagas()}" 
                             var="vaga" itemType="vaga" id="vagas">
                     <div class="col s12 m4">
-
                         <div class="card">
                             <div class="card-image">
                                 <img src="images/b6.jpg"/>
                                 <span class="card-title">#{vaga.titulo}</span>
                                 <h:form>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" jsf:action="#{inscricaoVagaController.selecionarVaga(vaga, loginController.candidatoLogado)}"><i class="material-icons">remove_red_eye</i></a>
+                                    <a jsf:action="#{selecionaVagaController.selecionarVagaToView(vaga)}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">
-                                <span>Descrição: #{vaga.descricao}</span><br/>
-                                <label>Salário: #{vaga.salario}</label><br/>
-                                <label>Horas diárias: #{vaga.horasDiarias}</label><br/>
-                                <label>Número vagas: #{vaga.numeroVagas}</label><br/>
-                                <label>Estado: #{vaga.estado.label}</label><br/>
-                                <label>Missão: #{vaga.missaoDaEmpresa}</label><br/>
-                                <label>Visão: #{vaga.visaoDaEmpresa}</label>
+                                <span>Salário: R$ #{vaga.salario}</span><br/>
+                                <span>Horas diárias: #{vaga.horasDiarias} horas</span><br/>
+                                <span>Número vagas: #{vaga.numeroVagas} vagas</span><br/>
+                                <span>Estado: <text class="green-text"><b>#{vaga.estado.label}</b></text></span><br/>
                             </div>
                             <div class="card-action">
                                 <h:form>
-                                    <a jsf:action="#{selecionaVagaController.selecionarVagaToView(vaga)}">Ver vaga</a>
+                                    <a jsf:action="#{inscricaoVagaController.selecionarVaga(vaga, loginController.candidatoLogado)}">Cadastrar-se</a>
                                 </h:form>
                             </div>
                         </div>
                     </div>
                 </p:dataList>
             </div>
+
         </div>
-<!--        <br/><br/>
-        <footer class="page-footer teal"></footer>-->
-        
+
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>

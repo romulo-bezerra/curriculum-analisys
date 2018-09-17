@@ -25,14 +25,24 @@
 
         <nav>
             <div class="nav-wrapper teal">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a class="white-text" href="javascript:history.back()"><i class="material-icons left white-text">navigate_before</i>Voltar</a></li>
+                </ul>
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" href="home-candidato.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
                         <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
             </div>
         </nav><br/>
+
+        <div class="row container">
+            <div class="col s12">
+                <h5>Vagas Inscritas</h5><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+        </div>   
+
 
         <div class="row container">
             <div class="datalist-noborder">
@@ -48,13 +58,10 @@
                                 </h:form>
                             </div>
                             <div class="card-content">
-                                <span>Descrição: #{vaga.descricao}</span><br/>
-                                <label>Salário: #{vaga.salario}</label><br/>
-                                <label>Horas diárias: #{vaga.horasDiarias}</label><br/>
-                                <label>Número vagas: #{vaga.numeroVagas}</label><br/>
-                                <label>Estado: #{vaga.estado.label}</label><br/>
-                                <label>Missão: #{vaga.missaoDaEmpresa}</label><br/>
-                                <label>Visão: #{vaga.visaoDaEmpresa}</label>
+                                <span>Salário: R$ #{vaga.salario}</span><br/>
+                                <span>Horas diárias: #{vaga.horasDiarias} horas</span><br/>
+                                <span>Número vagas: #{vaga.numeroVagas} vagas</span><br/>
+                                <span>Estado: <text class="green-text"><b>#{vaga.estado.label}</b></text></span><br/>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Home Empresa</title>
+        <title>Inscrições em Vagas</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -26,16 +26,29 @@
         <nav>
             <div class="nav-wrapper teal">
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a class="white-text" href="javascript:history.back()"><i class="material-icons left white-text">navigate_before</i>Voltar</a></li>
+                    <h:form>
+                        <li><a class="white-text" jsf:action="#{vagasInscritasEmpresaController.voltarAnteSelecao()}"><i class="material-icons left white-text">navigate_before</i>Voltar</a></li>
+                    </h:form>
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" href="home-empresa.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
                         <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
             </div>
         </nav><br/>
+        
+        <div class="row container" jsf:rendered="#{!vagasInscritasEmpresaController.vagaSelecionada}">
+            <div class="col s12">
+                <h5>Vagas com Inscrições</h5><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+        </div>
+        <div class="row container" jsf:rendered="#{vagasInscritasEmpresaController.vagaSelecionada}">
+            <div class="col s12">
+                <h5>Inscrições de Candidatos</h5><hr size="1" style="border:1px dashed green;"></hr>
+            </div>
+        </div>
 
         <div class="row container" jsf:rendered="#{vagasInscritasEmpresaController.vagaSelecionada == false}">
             <div class="datalist-noborder">
@@ -51,13 +64,10 @@
                                 </h:form>
                             </div>
                             <div class="card-content">
-                                <span>Descrição: #{vaga.descricao}</span><br/>
-                                <label>Salário: #{vaga.salario}</label><br/>
-                                <label>Horas diárias: #{vaga.horasDiarias}</label><br/>
-                                <label>Número vagas: #{vaga.numeroVagas}</label><br/>
-                                <label>Estado: #{vaga.estado.label}</label><br/>
-                                <label>Missão: #{vaga.missaoDaEmpresa}</label><br/>
-                                <label>Visão: #{vaga.visaoDaEmpresa}</label>
+                                <span>Salário: R$ #{vaga.salario}</span><br/>
+                                <span>Horas diárias: #{vaga.horasDiarias} horas</span><br/>
+                                <span>Número vagas: #{vaga.numeroVagas} vagas</span><br/>
+                                <span>Estado: <text class="green-text"><b>#{vaga.estado.label}</b></text></span><br/>
                             </div>
                             <div class="card-action">
                                 <h:form>
@@ -78,12 +88,13 @@
                         <div class="card">
                             <div class="card-image">
                                 <img src="images/user.png"/>
-                                <span class="card-title">#{iv.candidato.nome}</span>
+                                <span class="card-title">#{iv.candidato.nome} #{iv.candidato.sobreNome}</span>
                                 <h:form>
                                     <a jsf:action="#{selecionaVagaController.selecionarInscricaoVagaToView(iv)}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove_red_eye</i></a>
                                 </h:form>
                             </div>
                             <div class="card-content">
+                                <span>Email: #{iv.candidato.email}</span><br/>
                                 <span>Nacionalidade: #{iv.candidato.nacionalidade}</span><br/>
                             </div>
                             <div class="card-action">

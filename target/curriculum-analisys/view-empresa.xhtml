@@ -17,10 +17,13 @@
 
         <nav>
             <div class="nav-wrapper teal">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a class="white-text" href="javascript:history.back()"><i class="material-icons left white-text">navigate_before</i>Voltar</a></li>
+                </ul>
                 <ul class="right hide-on-med-and-down">
                     <h:form>
-                        <li><a class="white-text" href="cadastro-candidato.xhtml"><i class="material-icons left white-text">person_add</i>Como candidato</a></li>
-                        <li><a class="white-text" href="index.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" href="home-candidato.xhtml"><i class="material-icons left white-text">home</i>Início</a></li>
+                        <li><a class="white-text" jsf:action="#{loginController.logout()}"><i class="material-icons right white-text">exit_to_app</i>Logout</a></li>
                     </h:form>
                 </ul>
             </div>
@@ -121,14 +124,7 @@
                 <div class="left">
                     <label><h:messages class="red-text center"/></label>
                 </div>
-            <h:form>
-                <div class="right">
-                    <a class="waves-effect waves-light btn-large" href="javascript:history.back()"><i class="material-icons left">arrow_back</i>Voltar</a>
-                </div>
-            </h:form>
         </div>
-
-        <footer class="page-footer teal"></footer>
 
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

@@ -37,6 +37,10 @@ public class SelecionaEmpresaController implements Serializable {
         return "view-empresa.xhtml";
     }
     
+    public void voltaAnteSelecao(){
+        empresaSelecionada = false;
+    }
+    
     public List<Vaga> findAllVagas() {
         return vagaService.findAllVagas(empresa);
     }
